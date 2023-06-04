@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StackATS - Home</title>
+  <!-- output css file -->
+  <link rel="stylesheet" href="css/output.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css'>
+  <!-- fonts cdn -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+    rel="stylesheet">
+  <!-- tailwindcss cdn -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <style>
+    body {
+      font-family: 'Red Hat Display', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="md:bg-red-200 lg:bg-white">
+
+
+
+  <header class="absolute sticky mx-auto p-3 lg:p-0 left-0 top-0 z-50 bg-white/90 w-full backdrop-blur">
+    <div class="lg:mx-auto max-w-7xl mx-5 w-auto mt-5">
+     <div class="relative flex h-full items-center justify-between my-auto">
+        
+            <a href="index.html">
+                <img src="images/RoyalQlogo-blue.svg" alt="logo" class="w-32 lg:w-40">
+              </a>
+            
+          <button id="menu" class="
+          lg:hidden
+          p-2
+          focus-visible:ring-sky-100
+          text-slate-700
+          hover:text-neutral-600
+          transition-colors
+          " aria-expanded="false"
+          aria-label="Open Menu">
+
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" 
+              d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+            </svg>
+
+
+          </button>
+
+          <div role="menubar" class="
+          hidden
+          flex-col
+          gap-4
+          absolute
+          z-40
+          right-0
+          left-0
+          rounded-lg
+          top-16
+          shadow-sm
+          bg-white
+          text-left
+          p-6
+          border
+          text-lg
+          items-left
+          w-auto
+          border-sky-200
+          lg:flex
+          lg:flex-row
+          lg:static
+          lg:border-none
+          lg:space-x-8
+          lg:items-center
+          lg:bg-transparent
+          lg:shadow-none
+
+
+          ">
+        <a href="index.html" class="hover:text-slate-400 duration-200">Home</a>
+        <a href="about.html" class="hover:text-slate-400 duration-200">About</a>
+        <a href="services.html" class="hover:text-slate-400 duration-200">services</a>
+        <a href="contact.html" class="hover:text-slate-400 duration-200">Contact</a>
+
+        
+        <!-- <a href="register.html" class="btn px-8 text-white text-center text-md">Get Started</a> -->
+        </div>
+     </div>
+     </div>
+  </header>
+
+
+  <div class="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900 ">
+    <div class="container mx-auto">
+      <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-lg shadow-lg">
+        <div class="text-center">
+          <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
+            Contact Us
+          </h1>
+          <p class="text-gray-400 dark:text-gray-400">
+            Fill up the form below to send us a message.
+          </p>
+        </div>
+        <div class="m-7">
+          <form action="https://api.web3forms.com/submit" method="POST" id="form">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+            <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+            <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+            <input type="checkbox" name="botcheck" id="" style="display: none;" />
+            <div class="mb-6">
+              <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full Name</label>
+              <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+            </div>
+            <div class="mb-6">
+              <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
+              <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+            </div>
+            <div class="mb-6">
+              <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone Number</label>
+              <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+            </div>
+            <div class="mb-6">
+              <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Your Message</label>
+  
+              <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required></textarea>
+            </div>
+            <div class="mb-6">
+              <button type="submit" class="w-full px-3 py-4 text-white bg-blue-400 rounded-md focus:bg-indigo-600 focus:outline-none">
+                Send Message
+              </button>
+            </div>
+            <p class="text-base text-center text-gray-400" id="result"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <footer class="bg-zinc-800 pt-20 lg:p-20 p-10 mt-40">
+    <div class="mx-auto max-w-7xl">
+
+      <div class="grid lg:grid-cols-6 lg:gap-10 gap-20">
+
+        <!-- col 1 -->
+        <div class="lg:col-span-2">
+          <a href="index.html">
+            <img src="../images/RoyalQlogo-blue.svg" alt="logo image" class="w-40 text-white">
+          </a>
+          <p class="text-slate-400 mt-4 lg:text-sm">
+            Manage your contracts and mobilse with ease using RoyalQ.
+            Our company simplifies the application process,
+            saving you time and effort.
+          </p>
+        </div>
+
+        <!-- col 2 -->
+        <div class="">
+          <ul class="text-lg md:text-md">
+            <li><a href="#" class="text-sky-400">Apply Now</a></li>
+            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">FAQ</a></li>
+            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Services</a></li>
+            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Resources</a></li>
+          </ul>
+        </div>
+
+
+        <!-- col 3 -->
+        <div class="">
+          <ul class="text-lg md:text-md">
+            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Affiliates</a></li>
+            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Partners</a></li>
+            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Donations</a></li>
+            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Founders</a></li>
+            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Our Team</a></li>
+          </ul>
+        </div>
+
+
+
+        <!-- col 4 -->
+        <div class="lg:col-span-2">
+          <h1 class="text-white text-2xl">Subscribe To Our Newsletter</h1>
+
+          <div class="border border-slate-600 mt-5 rounded-full w-[90%] md:w-[60%] lg:w-full">
+
+            <!-- input field box -->
+            <div class="p-1.5 flex justify-between">
+              <input class="font-semibold text-white lg:text-sm outline-none bg-transparent ml-3" type="email"
+                placeholder="123@example.com">
+              <button type="submit" class="px-6 py-4 lg:p-2.5
+                       lg:text-sm xl:mr-0 xl:px-5 xl:py-3 bg-sky-400 text-white rounded-full">Subscribe</button>
+            </div>
+          </div>
+          <!-- icons -->
+          <div class="mt-5 flex justify-center space-x-16 lg:space-x-10 md:justify-start">
+
+
+            <a href="#">
+              <img src="../images/instagram.svg" alt="dribble icon" class="w-8 lg:min-w-[25px]">
+            </a>
+            <a href="#">
+              <img src="../images/facebook.svg" alt="dribble icon" class="w-8 lg:min-w-[25px]">
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="my-20 opacity-20">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 md:justify-between">
+        <p class="mb-5 md:mb-0 text-slate-500">&copy; Copyright Web Design & Development</p>
+
+        <div class="space-x-6 md:ml-auto">
+          <a href="#" class="text-slate-300 underline">Terms and Conditions</a>
+          <a href="#" class="text-slate-300 underline">Privacy Policy</a>
+        </div>
+      </div>
+
+  </footer>
+
+  <!-- footer --> 
+   <script src="./main.js"></script>
+  <script src='https://js.hcaptcha.com/1/api.js'></script>
+ 
+
+</body>
+
+</html>
