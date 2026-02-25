@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juventus 4-4 Dortmund | Match Report - RoyalQ</title>
+  <meta name="description" content="UEFA Champions League Matchday 1 tactical analysis: Juventus vs Borussia Dortmund, September 16 2025. Opposition scouting report focused on Dortmund.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base: {
+              900: '#060910',
+              800: '#0a0f1c',
+              700: '#0f1525',
+              600: '#151d32',
+              500: '#1a2440',
+            },
+            royal: {
+              50: '#eef2ff',
+              100: '#dce4fe',
+              200: '#bfcdfe',
+              300: '#93aafd',
+              400: '#6080fa',
+              500: '#3b5cf6',
+              600: '#2441eb',
+              700: '#1a32d8',
+              800: '#1c2baf',
+            },
+            ivory: {
+              50: '#faf8f5',
+              100: '#f0ece4',
+              200: '#d8d2c6',
+              300: '#b5ad9e',
+              400: '#8a8275',
+              500: '#6b6560',
+            },
+            bvb: '#FDE100',
+            juve: '#FFFFFF',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body: ['"Outfit"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #060910;
+      color: #f0ece4;
+    }
+
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* Noise texture overlay */
+    .noise::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    /* Gold gradient text */
+    .text-royal-gradient {
+      background: linear-gradient(135deg, #bfcdfe 0%, #6080fa 50%, #bfcdfe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
+    .reveal-stagger > .reveal:nth-child(2) { transition-delay: 120ms; }
+    .reveal-stagger > .reveal:nth-child(3) { transition-delay: 240ms; }
+
+    /* Gold line accent */
+    .royal-line {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, #6080fa, transparent);
+    }
+
+    /* Card hover glow */
+    .card-glow {
+      position: relative;
+      transition: all 0.4s ease;
+    }
+    .card-glow::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      box-shadow: 0 0 40px rgba(96, 128, 250, 0.08), inset 0 1px 0 rgba(96, 128, 250, 0.15);
+    }
+    .card-glow:hover::after {
+      opacity: 1;
+    }
+    .card-glow:hover {
+      border-color: rgba(96, 128, 250, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Nav link underline */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #6080fa;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Smooth scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #060910; }
+    ::-webkit-scrollbar-thumb { background: #1a2440; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6080fa; }
+
+    /* Hero gradient orb */
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+    }
+
+    /* Button shine */
+    .btn-royal {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #6080fa 0%, #3b5cf6 100%);
+      color: #ffffff;
+    }
+    .btn-royal::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+    .btn-royal:hover::before {
+      left: 100%;
+    }
+
+    /* ===== MATCH REPORT SPECIFIC ===== */
+
+    /* Sidebar TOC */
+    .toc-link {
+      position: relative;
+      padding-left: 16px;
+      transition: all 0.25s ease;
+    }
+    .toc-link::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 0;
+      background: #6080fa;
+      border-radius: 2px;
+      transition: height 0.25s ease;
+    }
+    .toc-link:hover::before,
+    .toc-link.active::before {
+      height: 100%;
+    }
+    .toc-link:hover,
+    .toc-link.active {
+      color: #6080fa;
+    }
+
+    /* Tactical image container */
+    .tactical-img {
+      border: 1px solid rgba(96, 128, 250, 0.12);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #0a0f1c;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .tactical-img:hover {
+      border-color: rgba(96, 128, 250, 0.3);
+      transform: scale(1.01);
+    }
+    .tactical-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Score pill */
+    .score-pill {
+      background: linear-gradient(135deg, rgba(96, 128, 250, 0.15) 0%, rgba(59, 92, 246, 0.08) 100%);
+      border: 1px solid rgba(96, 128, 250, 0.25);
+    }
+
+    /* Data table */
+    .data-table {
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    .data-table th {
+      background: rgba(96, 128, 250, 0.08);
+      border-bottom: 1px solid rgba(96, 128, 250, 0.15);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #6080fa;
+      padding: 10px 12px;
+      text-align: left;
+    }
+    .data-table td {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      color: #d8d2c6;
+    }
+    .data-table tbody tr:hover td {
+      background: rgba(96, 128, 250, 0.03);
+    }
+
+    /* Strength/Weakness cards */
+    .strength-card {
+      border-left: 3px solid #22c55e;
+    }
+    .weakness-card {
+      border-left: 3px solid #ef4444;
+    }
+
+    /* Section anchor offset for sticky header */
+    .section-anchor {
+      scroll-margin-top: 100px;
+    }
+
+    /* Q&A styling */
+    .qa-item {
+      border-left: 2px solid rgba(96, 128, 250, 0.2);
+    }
+    .qa-item:hover {
+      border-left-color: #6080fa;
+    }
+
+    /* Match timeline dot */
+    .timeline-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6080fa;
+      box-shadow: 0 0 8px rgba(96, 128, 250, 0.4);
+    }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      background: rgba(6, 9, 16, 0.92);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox-overlay.active {
+      display: flex;
+    }
+    .lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 8px;
+      border: 1px solid rgba(96, 128, 250, 0.2);
+    }
+
+    /* Mobile TOC drawer */
+    @media (max-width: 1023px) {
+      .toc-sidebar {
+        display: none;
+      }
+    }
+
+    /* BVB yellow accent */
+    .bvb-accent { color: #FDE100; }
+    .bvb-bg { background-color: rgba(253, 225, 0, 0.08); border-color: rgba(253, 225, 0, 0.2); }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="noise">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-base-900/80 border-b border-white/[0.04]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="images/RoyalQlogo-blue.svg" alt="RoyalQ logo" class="w-28 lg:w-36 brightness-0 invert opacity-90">
+        </a>
+
+        <button id="menu" class="lg:hidden p-2 text-ivory-300 hover:text-royal-400 transition-colors" aria-expanded="false" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+          </svg>
+        </button>
+
+        <div role="menubar" class="hidden flex-col gap-5 absolute z-40 right-4 left-4 rounded-xl top-16 bg-base-700 text-left p-6 border border-royal-400/10 text-lg lg:flex lg:flex-row lg:static lg:border-none lg:space-x-10 lg:items-center lg:bg-transparent lg:p-0 lg:gap-0 shadow-2xl lg:shadow-none">
+          <a href="index.html" class="nav-link text-ivory-300 hover:text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">Home</a>
+          <a href="about.html" class="nav-link text-ivory-300 hover:text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">About</a>
+          <a href="services.html" class="nav-link text-ivory-300 hover:text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">Services</a>
+          <a href="contact.html" class="nav-link text-ivory-300 hover:text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">Contact</a>
+          <a href="contact.html" class="btn-royal px-6 py-2.5 rounded font-body text-sm tracking-wide uppercase font-semibold text-center">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox">
+    <img src="" alt="Enlarged tactical diagram" id="lightbox-img">
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden border-b border-white/[0.04]">
+    <div class="hero-orb w-[500px] h-[500px] bg-royal-400/[0.04] -top-40 right-10"></div>
+    <div class="hero-orb w-[300px] h-[300px] bg-bvb/[0.02] bottom-0 -left-20"></div>
+    <div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-royal-400/[0.05] to-transparent"></div>
+
+    <div class="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-14 lg:py-20">
+      <!-- Breadcrumb -->
+      <div class="reveal flex items-center gap-2 text-xs text-ivory-500 font-body mb-8">
+        <a href="index.html" class="hover:text-royal-400 transition-colors">Home</a>
+        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span>Match Reports</span>
+        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-royal-400">Juventus vs Dortmund</span>
+      </div>
+
+      <!-- Match header -->
+      <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+        <div>
+          <div class="inline-flex items-center gap-3 border border-royal-400/20 rounded-full px-4 py-1.5 mb-6 bg-royal-400/[0.04]">
+            <span class="w-1.5 h-1.5 bg-royal-400 rounded-full"></span>
+            <span class="text-[10px] text-royal-400 font-body tracking-[0.2em] uppercase font-medium">UEFA Champions League &middot; Matchday 1</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
+            <span class="text-juve">Juventus</span>
+            <span class="text-royal-gradient italic mx-3">4 &ndash; 4</span>
+            <span class="bvb-accent">Dortmund</span>
+          </h1>
+
+          <div class="royal-line mt-5"></div>
+
+          <p class="text-ivory-400 mt-4 text-sm font-light">
+            Opposition Scouting Report &mdash; Focus: <strong class="text-bvb font-medium">Borussia Dortmund</strong>
+          </p>
+        </div>
+
+        <!-- Match meta card -->
+        <div class="score-pill rounded-xl px-6 py-5 min-w-[280px]">
+          <div class="grid grid-cols-2 gap-x-8 gap-y-3 text-sm">
+            <div>
+              <p class="text-[10px] text-ivory-500 uppercase tracking-[0.15em] font-body mb-1">Date</p>
+              <p class="text-ivory-200 font-light">Tue, 16 Sep 2025</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-ivory-500 uppercase tracking-[0.15em] font-body mb-1">Kick-off</p>
+              <p class="text-ivory-200 font-light">20:00 CET</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-ivory-500 uppercase tracking-[0.15em] font-body mb-1">Venue</p>
+              <p class="text-ivory-200 font-light">Juventus Stadium, Turin</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-ivory-500 uppercase tracking-[0.15em] font-body mb-1">Weather</p>
+              <p class="text-ivory-200 font-light">21&deg;C Cloudy Night</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-ivory-500 uppercase tracking-[0.15em] font-body mb-1">Conditions</p>
+              <p class="text-ivory-200 font-light">83% Humidity, 6 km/h Wind</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-ivory-500 uppercase tracking-[0.15em] font-body mb-1">Scout</p>
+              <p class="text-ivory-200 font-light">Omachonu Atanu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Score timeline -->
+      <div class="reveal mt-10 bg-base-700/40 rounded-xl border border-white/[0.04] p-5 overflow-x-auto">
+        <p class="text-[10px] text-ivory-500 uppercase tracking-[0.2em] font-body mb-4">Goal Timeline</p>
+        <div class="flex items-center gap-0 min-w-[600px] relative">
+          <!-- Timeline bar -->
+          <div class="absolute top-1/2 left-0 right-0 h-px bg-white/[0.06] -translate-y-1/2"></div>
+
+          <!-- Events -->
+          <div class="relative flex justify-between w-full">
+            <div class="flex flex-col items-center gap-2 z-10">
+              <span class="text-[10px] text-ivory-500 font-body">KO</span>
+              <div class="w-2 h-2 rounded-full bg-white/20"></div>
+              <span class="text-[10px] text-ivory-500 font-body">&nbsp;</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 z-10">
+              <span class="text-[10px] bvb-accent font-body font-medium">52'</span>
+              <div class="timeline-dot" style="background: #FDE100; box-shadow: 0 0 8px rgba(253,225,0,0.4);"></div>
+              <span class="text-[10px] text-ivory-300 font-body">Adeyemi</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 z-10">
+              <span class="text-[10px] text-ivory-200 font-body font-medium">59'</span>
+              <div class="timeline-dot" style="background: #fff;"></div>
+              <span class="text-[10px] text-ivory-300 font-body">Vlahovic</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 z-10">
+              <span class="text-[10px] text-ivory-200 font-body font-medium">63'</span>
+              <div class="timeline-dot" style="background: #fff;"></div>
+              <span class="text-[10px] text-ivory-300 font-body">Yildiz</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 z-10">
+              <span class="text-[10px] bvb-accent font-body font-medium">65'</span>
+              <div class="timeline-dot" style="background: #FDE100; box-shadow: 0 0 8px rgba(253,225,0,0.4);"></div>
+              <span class="text-[10px] text-ivory-300 font-body">Nmecha</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 z-10">
+              <span class="text-[10px] text-ivory-200 font-body font-medium">67'</span>
+              <div class="timeline-dot" style="background: #fff;"></div>
+              <span class="text-[10px] text-ivory-300 font-body">Vlahovic</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 z-10">
+              <span class="text-[10px] bvb-accent font-body font-medium">86'</span>
+              <div class="timeline-dot" style="background: #FDE100; box-shadow: 0 0 8px rgba(253,225,0,0.4);"></div>
+              <span class="text-[10px] text-ivory-300 font-body">Bensebaini PK</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 z-10">
+              <span class="text-[10px] bvb-accent font-body font-medium">90+2'</span>
+              <div class="timeline-dot" style="background: #FDE100; box-shadow: 0 0 8px rgba(253,225,0,0.4);"></div>
+              <span class="text-[10px] text-ivory-300 font-body">Guirassy*</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 z-10">
+              <span class="text-[10px] text-ivory-200 font-body font-medium">90+4'</span>
+              <div class="timeline-dot" style="background: #fff;"></div>
+              <span class="text-[10px] text-ivory-300 font-body">Vlahovic</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 z-10">
+              <span class="text-[10px] text-ivory-200 font-body font-medium">90+6'</span>
+              <div class="timeline-dot" style="background: #fff;"></div>
+              <span class="text-[10px] text-ivory-300 font-body">Kelly</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 z-10">
+              <span class="text-[10px] text-ivory-500 font-body">FT</span>
+              <div class="w-2 h-2 rounded-full bg-white/20"></div>
+              <span class="text-[10px] text-ivory-500 font-body">&nbsp;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content with sidebar -->
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-12 lg:py-16">
+    <div class="flex gap-10 lg:gap-14">
+
+      <!-- Sticky TOC Sidebar -->
+      <aside class="toc-sidebar hidden lg:block w-56 shrink-0">
+        <div class="sticky top-28">
+          <p class="text-[10px] text-royal-400 font-body tracking-[0.25em] uppercase mb-5 font-medium">Contents</p>
+          <nav class="flex flex-col gap-2.5 text-sm font-light">
+            <a href="#team-sheets" class="toc-link text-ivory-400 transition-colors py-0.5">Team Sheets</a>
+            <a href="#recent-form" class="toc-link text-ivory-400 transition-colors py-0.5">Recent Form</a>
+            <a href="#formations" class="toc-link text-ivory-400 transition-colors py-0.5">Formations</a>
+            <a href="#attacking" class="toc-link text-ivory-400 transition-colors py-0.5">Attacking Analysis</a>
+            <a href="#defensive" class="toc-link text-ivory-400 transition-colors py-0.5">Defensive Analysis</a>
+            <a href="#strengths" class="toc-link text-ivory-400 transition-colors py-0.5">Strengths &amp; Weaknesses</a>
+            <a href="#set-pieces" class="toc-link text-ivory-400 transition-colors py-0.5">Set Pieces</a>
+            <a href="#general" class="toc-link text-ivory-400 transition-colors py-0.5">General Analysis</a>
+            <a href="#players" class="toc-link text-ivory-400 transition-colors py-0.5">Player Analysis</a>
+            <a href="#assessment" class="toc-link text-ivory-400 transition-colors py-0.5">Game Assessment</a>
+          </nav>
+
+          <div class="mt-8 pt-6 border-t border-white/[0.04]">
+            <p class="text-[10px] text-ivory-500 uppercase tracking-[0.15em] font-body mb-2">Pitch Conditions</p>
+            <p class="text-ivory-300 text-xs font-light">Fine Grass &mdash; Well-kept</p>
+            <p class="text-[10px] text-ivory-500 uppercase tracking-[0.15em] font-body mt-4 mb-2">Report Date</p>
+            <p class="text-ivory-300 text-xs font-light">22 January 2026</p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Mobile TOC toggle -->
+      <div class="lg:hidden fixed bottom-6 right-6 z-40">
+        <button id="toc-toggle" class="btn-royal w-12 h-12 rounded-full flex items-center justify-center shadow-lg shadow-royal-500/20">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/></svg>
+        </button>
+      </div>
+      <div id="toc-mobile" class="lg:hidden fixed inset-x-0 bottom-0 z-30 bg-base-800/95 backdrop-blur-xl border-t border-royal-400/10 p-6 translate-y-full transition-transform duration-300 rounded-t-2xl" style="max-height: 60vh; overflow-y: auto;">
+        <p class="text-[10px] text-royal-400 font-body tracking-[0.25em] uppercase mb-4 font-medium">Jump to Section</p>
+        <nav class="grid grid-cols-2 gap-2 text-sm font-light">
+          <a href="#team-sheets" class="toc-mobile-link text-ivory-400 hover:text-royal-400 py-2 px-3 rounded bg-base-700/50 border border-white/[0.04] transition-colors">Team Sheets</a>
+          <a href="#recent-form" class="toc-mobile-link text-ivory-400 hover:text-royal-400 py-2 px-3 rounded bg-base-700/50 border border-white/[0.04] transition-colors">Recent Form</a>
+          <a href="#formations" class="toc-mobile-link text-ivory-400 hover:text-royal-400 py-2 px-3 rounded bg-base-700/50 border border-white/[0.04] transition-colors">Formations</a>
+          <a href="#attacking" class="toc-mobile-link text-ivory-400 hover:text-royal-400 py-2 px-3 rounded bg-base-700/50 border border-white/[0.04] transition-colors">Attacking</a>
+          <a href="#defensive" class="toc-mobile-link text-ivory-400 hover:text-royal-400 py-2 px-3 rounded bg-base-700/50 border border-white/[0.04] transition-colors">Defensive</a>
+          <a href="#strengths" class="toc-mobile-link text-ivory-400 hover:text-royal-400 py-2 px-3 rounded bg-base-700/50 border border-white/[0.04] transition-colors">Strengths</a>
+          <a href="#set-pieces" class="toc-mobile-link text-ivory-400 hover:text-royal-400 py-2 px-3 rounded bg-base-700/50 border border-white/[0.04] transition-colors">Set Pieces</a>
+          <a href="#general" class="toc-mobile-link text-ivory-400 hover:text-royal-400 py-2 px-3 rounded bg-base-700/50 border border-white/[0.04] transition-colors">General</a>
+          <a href="#players" class="toc-mobile-link text-ivory-400 hover:text-royal-400 py-2 px-3 rounded bg-base-700/50 border border-white/[0.04] transition-colors">Players</a>
+          <a href="#assessment" class="toc-mobile-link text-ivory-400 hover:text-royal-400 py-2 px-3 rounded bg-base-700/50 border border-white/[0.04] transition-colors">Assessment</a>
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <main class="flex-1 min-w-0">
+
+        <!-- ====== TEAM SHEETS ====== -->
+        <section id="team-sheets" class="section-anchor mb-16 reveal">
+          <div class="flex items-center gap-4 mb-8">
+            <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase font-medium">01</p>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <h2 class="font-display text-3xl lg:text-4xl font-semibold mb-2">Team <span class="italic text-royal-gradient">Sheets</span></h2>
+          <div class="royal-line mt-3 mb-8"></div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Juventus -->
+            <div class="bg-base-700/40 rounded-xl border border-white/[0.04] overflow-hidden">
+              <div class="px-5 py-4 border-b border-white/[0.04] flex items-center justify-between">
+                <div>
+                  <h3 class="font-display text-lg font-semibold text-ivory-100">Juventus</h3>
+                  <p class="text-xs text-ivory-500 font-light mt-0.5">Manager: Igor Tudor</p>
+                </div>
+                <span class="text-xs text-ivory-500 font-body tracking-wider uppercase bg-base-600/60 px-3 py-1 rounded">Home</span>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="data-table w-full">
+                  <thead>
+                    <tr>
+                      <th class="w-12">No</th>
+                      <th>Player</th>
+                      <th class="w-16">Sub</th>
+                      <th class="w-16">Goal</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="text-ivory-500">16</td><td>Michel Di Gregorio</td><td></td><td></td></tr>
+                    <tr><td class="text-ivory-500">3</td><td>Bremer <span class="text-royal-400 text-xs">&copy;</span></td><td></td><td></td></tr>
+                    <tr><td class="text-ivory-500">6</td><td>Lloyd Kelly</td><td></td><td class="bvb-accent text-xs">90+6'</td></tr>
+                    <tr><td class="text-ivory-500">8</td><td>Teun Koopmeiners</td><td class="text-ivory-500 text-xs">69'</td><td></td></tr>
+                    <tr><td class="text-ivory-500">10</td><td>Kenan Yildiz</td><td class="text-ivory-500 text-xs">87'</td><td class="bvb-accent text-xs">63'</td></tr>
+                    <tr><td class="text-ivory-500">15</td><td>Pierre Kalulu</td><td></td><td></td></tr>
+                    <tr><td class="text-ivory-500">19</td><td>Khephren Thuram</td><td></td><td></td></tr>
+                    <tr><td class="text-ivory-500">20</td><td>Lois Openda</td><td class="text-ivory-500 text-xs">69'</td><td></td></tr>
+                    <tr><td class="text-ivory-500">22</td><td>Weston McKennie</td><td class="text-ivory-500 text-xs">59'</td><td></td></tr>
+                    <tr><td class="text-ivory-500">27</td><td>Andrea Cambiaso</td><td></td><td></td></tr>
+                    <tr><td class="text-ivory-500">30</td><td>Jonathan David</td><td class="text-ivory-500 text-xs">59'</td><td></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="px-5 py-3 border-t border-white/[0.04]">
+                <p class="text-[10px] text-ivory-500 uppercase tracking-[0.15em] font-body mb-2">Substitutes</p>
+                <p class="text-xs text-ivory-400 font-light leading-relaxed">
+                  9-Vlahovic (59' on, 67' & 90+4' goals), 5-Locatelli (69'), 17-Adzic (69'), 25-Joa Mario (59'), 11-Zhegrova (87'), 7-Conceicao, 4-Gatti, 1-Perin (GK), 23-Pinsoglio (GK), 18-Kostic, 24-Rugani, 32-Cabal
+                </p>
+              </div>
+            </div>
+
+            <!-- Dortmund -->
+            <div class="bg-base-700/40 rounded-xl border border-bvb/10 overflow-hidden">
+              <div class="px-5 py-4 border-b border-bvb/10 flex items-center justify-between">
+                <div>
+                  <h3 class="font-display text-lg font-semibold bvb-accent">B. Dortmund</h3>
+                  <p class="text-xs text-ivory-500 font-light mt-0.5">Manager: Niko Kovac</p>
+                </div>
+                <span class="text-xs font-body tracking-wider uppercase bg-bvb/10 text-bvb px-3 py-1 rounded border border-bvb/20">Focus</span>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="data-table w-full">
+                  <thead>
+                    <tr>
+                      <th class="w-12">No</th>
+                      <th>Player</th>
+                      <th class="w-16">Sub</th>
+                      <th class="w-16">Goal</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="text-ivory-500">1</td><td>Gregory Kobel <span class="text-royal-400 text-xs">&copy;</span></td><td></td><td></td></tr>
+                    <tr><td class="text-ivory-500">2</td><td>Yan Couto</td><td class="text-ivory-500 text-xs">74'</td><td></td></tr>
+                    <tr><td class="text-ivory-500">3</td><td>Waldemar Anton</td><td></td><td></td></tr>
+                    <tr><td class="text-ivory-500">5</td><td>Ramy Bensebaini</td><td></td><td class="bvb-accent text-xs">PK 86'</td></tr>
+                    <tr><td class="text-ivory-500">8</td><td>Felix Nmecha</td><td class="text-ivory-500 text-xs">71'</td><td class="bvb-accent text-xs">65'</td></tr>
+                    <tr><td class="text-ivory-500">9</td><td>Serhou Guirassy</td><td class="text-ivory-500 text-xs">90+2'</td><td></td></tr>
+                    <tr><td class="text-ivory-500">14</td><td>Maximilian Beier</td><td class="text-ivory-500 text-xs">71'</td><td></td></tr>
+                    <tr><td class="text-ivory-500">20</td><td>Marcel Sabitzer</td><td></td><td></td></tr>
+                    <tr><td class="text-ivory-500">24</td><td>Daniel Svensson</td><td></td><td></td></tr>
+                    <tr><td class="text-ivory-500">26</td><td>Julian Ryerson</td><td></td><td></td></tr>
+                    <tr><td class="text-ivory-500">27</td><td>Karim Adeyemi</td><td></td><td class="bvb-accent text-xs">52'</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="px-5 py-3 border-t border-bvb/10">
+                <p class="text-[10px] text-ivory-500 uppercase tracking-[0.15em] font-body mb-2">Substitutes</p>
+                <p class="text-xs text-ivory-400 font-light leading-relaxed">
+                  7-Jobe Bellingham (71'), 10-Julian Brandt (71'), 13-Pascal Gross (90+2'), 17-Chukwuemeka, 37-Campbell, 39-Mane, 42-Kabor, 31-Ostrizinski (GK), 33-Meyer (GK)
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== RECENT FORM ====== -->
+        <section id="recent-form" class="section-anchor mb-16 reveal">
+          <div class="flex items-center gap-4 mb-8">
+            <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase font-medium">02</p>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <h2 class="font-display text-3xl lg:text-4xl font-semibold mb-2">Recent <span class="italic text-royal-gradient">Form</span></h2>
+          <div class="royal-line mt-3 mb-8"></div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Form results -->
+            <div class="bg-base-700/40 rounded-xl border border-white/[0.04] p-6">
+              <p class="text-[10px] text-royal-400 uppercase tracking-[0.2em] font-body mb-4 font-medium">Last 4 Matches</p>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between py-2 border-b border-white/[0.03]">
+                  <span class="text-sm text-ivory-300 font-light">Heidenheim vs B. Dortmund</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm text-ivory-200 font-medium">0 &ndash; 2</span>
+                    <span class="text-[10px] font-body font-semibold tracking-wider uppercase px-2 py-0.5 rounded bg-green-500/15 text-green-400 border border-green-500/20">W</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between py-2 border-b border-white/[0.03]">
+                  <span class="text-sm text-ivory-300 font-light">B. Dortmund vs Union Berlin</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm text-ivory-200 font-medium">3 &ndash; 0</span>
+                    <span class="text-[10px] font-body font-semibold tracking-wider uppercase px-2 py-0.5 rounded bg-green-500/15 text-green-400 border border-green-500/20">W</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between py-2 border-b border-white/[0.03]">
+                  <span class="text-sm text-ivory-300 font-light">St. Pauli vs B. Dortmund</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm text-ivory-200 font-medium">3 &ndash; 3</span>
+                    <span class="text-[10px] font-body font-semibold tracking-wider uppercase px-2 py-0.5 rounded bg-yellow-500/15 text-yellow-400 border border-yellow-500/20">D</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between py-2">
+                  <span class="text-sm text-ivory-300 font-light">Essen vs B. Dortmund</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm text-ivory-200 font-medium">0 &ndash; 1</span>
+                    <span class="text-[10px] font-body font-semibold tracking-wider uppercase px-2 py-0.5 rounded bg-green-500/15 text-green-400 border border-green-500/20">W</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Injuries & Suspensions -->
+            <div class="space-y-6">
+              <div class="bg-base-700/40 rounded-xl border border-white/[0.04] p-6">
+                <p class="text-[10px] text-red-400 uppercase tracking-[0.2em] font-body mb-4 font-medium">Injury List</p>
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="text-ivory-300 font-light">Nicolas Sule</span>
+                    <span class="text-red-400/80 text-xs">Calf injury</span>
+                  </div>
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="text-ivory-300 font-light">Emre Can</span>
+                    <span class="text-red-400/80 text-xs">Groin (Abduction Pain)</span>
+                  </div>
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="text-ivory-300 font-light">Fabio Silva</span>
+                    <span class="text-red-400/80 text-xs">Groin injury</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-base-700/40 rounded-xl border border-white/[0.04] p-6">
+                <p class="text-[10px] text-yellow-400 uppercase tracking-[0.2em] font-body mb-4 font-medium">Suspensions</p>
+                <div class="space-y-2">
+                  <p class="text-sm text-ivory-300 font-light">Patrick Drews</p>
+                  <p class="text-sm text-ivory-300 font-light">Salih Ozcan</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== FORMATIONS ====== -->
+        <section id="formations" class="section-anchor mb-16 reveal">
+          <div class="flex items-center gap-4 mb-8">
+            <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase font-medium">03</p>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <h2 class="font-display text-3xl lg:text-4xl font-semibold mb-2">Tactical <span class="italic text-royal-gradient">Formations</span></h2>
+          <div class="royal-line mt-3 mb-8"></div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Starting formation -->
+            <div class="bg-base-700/40 rounded-xl border border-white/[0.04] overflow-hidden">
+              <div class="px-5 py-3 border-b border-white/[0.04]">
+                <p class="text-[10px] text-royal-400 uppercase tracking-[0.2em] font-body font-medium">Starting Shape</p>
+                <p class="text-ivory-200 font-display text-lg font-semibold mt-1">1-4-3-3</p>
+              </div>
+              <div class="tactical-img m-3 cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/formation-433.png" alt="Dortmund starting formation 4-3-3" loading="lazy">
+              </div>
+              <p class="text-xs text-ivory-500 font-light px-5 pb-4 leading-relaxed">Starting formation used from kick-off. High attacking line with three forwards.</p>
+            </div>
+
+            <!-- Changed shape -->
+            <div class="bg-base-700/40 rounded-xl border border-white/[0.04] overflow-hidden">
+              <div class="px-5 py-3 border-b border-white/[0.04]">
+                <p class="text-[10px] text-royal-400 uppercase tracking-[0.2em] font-body font-medium">30th Minute Change</p>
+                <p class="text-ivory-200 font-display text-lg font-semibold mt-1">1-5-4-1</p>
+              </div>
+              <div class="tactical-img m-3 cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/formation-541.png" alt="Dortmund changed formation 5-4-1" loading="lazy">
+              </div>
+              <p class="text-xs text-ivory-500 font-light px-5 pb-4 leading-relaxed">More bodies at the back and midfield to sustain Juventus pressure in the first half.</p>
+            </div>
+
+            <!-- Finishing shape -->
+            <div class="bg-base-700/40 rounded-xl border border-white/[0.04] overflow-hidden">
+              <div class="px-5 py-3 border-b border-white/[0.04]">
+                <p class="text-[10px] text-royal-400 uppercase tracking-[0.2em] font-body font-medium">Finishing Shape</p>
+                <p class="text-ivory-200 font-display text-lg font-semibold mt-1">1-5-4-1</p>
+              </div>
+              <div class="tactical-img m-3 cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/formation-541-finish.png" alt="Dortmund finishing formation with substitutes" loading="lazy">
+              </div>
+              <p class="text-xs text-ivory-500 font-light px-5 pb-4 leading-relaxed">Brandt (#10) and Bellingham (#7) came on as game changers, keeping attacking tempo high.</p>
+            </div>
+          </div>
+
+          <div class="bg-base-700/30 rounded-xl border border-white/[0.04] p-6 mt-6">
+            <p class="text-sm text-ivory-300 font-light leading-relaxed">
+              The starting formation was a <strong class="text-ivory-100 font-medium">1-4-3-3</strong>, which changed on the 30th minute to a <strong class="text-ivory-100 font-medium">1-5-1-3-1</strong>, providing more bodies in the back and midfield to sustain Juventus pressure. The second half shape shifted to <strong class="text-ivory-100 font-medium">1-5-4-1</strong>, providing cover at the back while increasing numbers in the final third. When the press was on, #9 and #27 and #14 stayed on the edge of the box to initiate, with #24, #8, #20 marking in zones rather than fully committing to man marking.
+            </p>
+          </div>
+        </section>
+
+        <!-- ====== ATTACKING ANALYSIS ====== -->
+        <section id="attacking" class="section-anchor mb-16 reveal">
+          <div class="flex items-center gap-4 mb-8">
+            <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase font-medium">04</p>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <h2 class="font-display text-3xl lg:text-4xl font-semibold mb-2">Attacking <span class="italic text-royal-gradient">Analysis</span></h2>
+          <div class="royal-line mt-3 mb-8"></div>
+
+          <!-- GK Restarts -->
+          <div class="mb-10">
+            <h3 class="font-display text-xl font-semibold text-ivory-100 mb-4">GK Restarts</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+              <div class="tactical-img cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/gk-restart-short.png" alt="GK short restart pattern" loading="lazy">
+                <div class="px-3 py-2 bg-base-800/60">
+                  <p class="text-[10px] text-ivory-500 uppercase tracking-wider">1st Half &mdash; Short buildup</p>
+                </div>
+              </div>
+              <div class="tactical-img cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/gk-restart-long.png" alt="GK long restart pattern" loading="lazy">
+                <div class="px-3 py-2 bg-base-800/60">
+                  <p class="text-[10px] text-ivory-500 uppercase tracking-wider">2nd Half &mdash; Direct to #10</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-base-700/30 rounded-xl border border-white/[0.04] p-5">
+              <ul class="space-y-2.5 text-sm text-ivory-400 font-light leading-relaxed">
+                <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Ball always played short to CBs; #3 plays directly to #14 who drops deep to receive.</li>
+                <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Wide players and midfielders interchange position during restarts, creating bodies around the ball for retention or counter-pressing.</li>
+                <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>#5 and #8 constantly alive to 2nd balls, recovering possession multiple times.</li>
+                <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>GK hardly looks to throw long; when he did, it was to the FBs who played short to the winger.</li>
+                <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>In the 2nd half, restarts went long to #10 who tries to flick on for #9, reducing buildup time.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Middle Third -->
+          <div class="mb-10">
+            <h3 class="font-display text-xl font-semibold text-ivory-100 mb-4">2nd Phase &mdash; Middle Third</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+              <div class="tactical-img cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/middle-third-buildup.png" alt="Middle third buildup play" loading="lazy">
+                <div class="px-3 py-2 bg-base-800/60">
+                  <p class="text-[10px] text-ivory-500 uppercase tracking-wider">Buildup through midfield</p>
+                </div>
+              </div>
+              <div class="bg-base-700/30 rounded-xl border border-white/[0.04] p-5">
+                <ul class="space-y-2.5 text-sm text-ivory-400 font-light leading-relaxed">
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Balls played to CB and into midfield. Little interchange of passing &mdash; passes were more about creating spaces for 1-2s and playing out of the press.</li>
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Retaining possession and dictating play was the approach. Very few runners upfront, limiting through balls.</li>
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Slow buildup gave them numbers in the final third; short interchange created spaces behind the press.</li>
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>More players in the final third gave control in the opposition half, where possession was quickly regained.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Last Third & Goals -->
+          <div>
+            <h3 class="font-display text-xl font-semibold text-ivory-100 mb-4">Last Third &mdash; Goal Sequences</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+              <div class="tactical-img cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/last-third-bodies.png" alt="Last third secured possession" loading="lazy">
+                <div class="px-3 py-2 bg-base-800/60">
+                  <p class="text-[10px] text-ivory-500 uppercase tracking-wider">4 players always in box</p>
+                </div>
+              </div>
+              <div class="tactical-img cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/goal-1-sequence.png" alt="Adeyemi goal sequence" loading="lazy">
+                <div class="px-3 py-2 bg-base-800/60">
+                  <p class="text-[10px] bvb-accent uppercase tracking-wider">Fig 1.2 &mdash; Adeyemi goal (52')</p>
+                </div>
+              </div>
+              <div class="tactical-img cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/goal-2-sequence.png" alt="Nmecha goal sequence" loading="lazy">
+                <div class="px-3 py-2 bg-base-800/60">
+                  <p class="text-[10px] bvb-accent uppercase tracking-wider">Fig 1.1 &mdash; Nmecha goal (65')</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-base-700/30 rounded-xl border border-white/[0.04] p-5">
+              <ul class="space-y-2.5 text-sm text-ivory-400 font-light leading-relaxed">
+                <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Formation in the final third switched between 1-1-2-3-4 and 1-3-3-4. Always 4 players in the box for short passes or cutbacks.</li>
+                <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Opposition provided little space for short passes, so Dortmund took shots from outside the box &mdash; resulting in the first 2 goals.</li>
+                <li class="flex gap-2"><span class="bvb-accent mt-0.5 shrink-0">&bull;</span><strong class="text-ivory-200">Adeyemi Goal (52'):</strong> Quick ball movement &mdash; #8 drove forward, passed to #9, who played quickly to #27. Adeyemi dribbled past #6 and #8 before beating the keeper at the near post with a low driven shot.</li>
+                <li class="flex gap-2"><span class="bvb-accent mt-0.5 shrink-0">&bull;</span><strong class="text-ivory-200">Nmecha Goal (65'):</strong> #2 passed to #27 for quick interchange; when space closed, #27 passed to #8 who curled it to the top corner immediately.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== DEFENSIVE ANALYSIS ====== -->
+        <section id="defensive" class="section-anchor mb-16 reveal">
+          <div class="flex items-center gap-4 mb-8">
+            <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase font-medium">05</p>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <h2 class="font-display text-3xl lg:text-4xl font-semibold mb-2">Defensive <span class="italic text-royal-gradient">Analysis</span></h2>
+          <div class="royal-line mt-3 mb-8"></div>
+
+          <!-- Pressing from GK -->
+          <div class="mb-10">
+            <h3 class="font-display text-xl font-semibold text-ivory-100 mb-4">Press from Opposition GK</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+              <div class="tactical-img cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/defensive-press-gk.png" alt="Defensive press from opposition goal kick" loading="lazy">
+                <div class="px-3 py-2 bg-base-800/60">
+                  <p class="text-[10px] text-ivory-500 uppercase tracking-wider">1-3-2-3-2 pressing shape</p>
+                </div>
+              </div>
+              <div class="bg-base-700/30 rounded-xl border border-white/[0.04] p-5">
+                <ul class="space-y-2.5 text-sm text-ivory-400 font-light leading-relaxed">
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>#27 initiates the press to #6, forcing #20 to mark #19, while #14 presses GK and blocks passing lane to #27.</li>
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Press wasn't always effective &mdash; ball was either played to #20 or #10 behind the press, or the press wasn't quick enough.</li>
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>In the 2nd half the press got quicker with #20 pressing most balls in midfield and others marking in zones.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- High line -->
+          <div class="mb-10">
+            <h3 class="font-display text-xl font-semibold text-ivory-100 mb-4">High Line &amp; Spaces Behind</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+              <div class="tactical-img cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/defensive-highline.png" alt="High line leaving spaces behind" loading="lazy">
+                <div class="px-3 py-2 bg-base-800/60">
+                  <p class="text-[10px] text-ivory-500 uppercase tracking-wider">GK looped pass over the press</p>
+                </div>
+              </div>
+              <div class="bg-base-700/30 rounded-xl border border-white/[0.04] p-5">
+                <ul class="space-y-2.5 text-sm text-ivory-400 font-light leading-relaxed">
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>High line meant lots of spaces behind midfield after the press, and huge space behind the defensive line for direct balls.</li>
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Constantly tried man marking in zones with a high line throughout. Not effective as Juventus could play through or drop the ball behind midfielders.</li>
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Midfielders always running behind the ball rather than being able to tackle or mark who had possession.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Defensive last third -->
+          <div>
+            <h3 class="font-display text-xl font-semibold text-ivory-100 mb-4">Defensive Shape &mdash; Last Third</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+              <div class="tactical-img cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/defensive-last-third.png" alt="Defensive last third low block" loading="lazy">
+                <div class="px-3 py-2 bg-base-800/60">
+                  <p class="text-[10px] text-ivory-500 uppercase tracking-wider">Mobile low block in final third</p>
+                </div>
+              </div>
+              <div class="bg-base-700/30 rounded-xl border border-white/[0.04] p-5">
+                <ul class="space-y-2.5 text-sm text-ivory-400 font-light leading-relaxed">
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Formation changed between 1-5-1-3-1 and 1-5-4-1, depending on ball position in last third.</li>
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Maintained a very mobile low block with midfielders providing little spaces between them and defenders.</li>
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>Defensive line was effective in catching Juventus players offside.</li>
+                  <li class="flex gap-2"><span class="text-royal-400 mt-0.5 shrink-0">&bull;</span>When numbers were enough, they moved as a compact line with very little space between first and second defensive lines.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== STRENGTHS & WEAKNESSES ====== -->
+        <section id="strengths" class="section-anchor mb-16 reveal">
+          <div class="flex items-center gap-4 mb-8">
+            <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase font-medium">06</p>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <h2 class="font-display text-3xl lg:text-4xl font-semibold mb-2">Strengths &amp; <span class="italic text-royal-gradient">Weaknesses</span></h2>
+          <div class="royal-line mt-3 mb-8"></div>
+
+          <!-- Defensive S&W -->
+          <div class="mb-10">
+            <h3 class="font-display text-xl font-semibold text-ivory-100 mb-5">Defensive</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-4">
+                <p class="text-[10px] text-green-400 uppercase tracking-[0.2em] font-body font-medium flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Strengths
+                </p>
+                <div class="strength-card bg-base-700/30 rounded-r-lg p-4 space-y-3">
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">Very effective defensive line and offside traps throughout the match.</p>
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">More bodies in the press prevented Juventus from playing from the back consistently.</p>
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">More players in the opposition half meant quick turnovers in attacking position, leading directly to 2 goals scored.</p>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <p class="text-[10px] text-red-400 uppercase tracking-[0.2em] font-body font-medium flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                  Weaknesses
+                </p>
+                <div class="weakness-card bg-base-700/30 rounded-r-lg p-4 space-y-3">
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">Relapse in the final moments saw a breakdown in offside traps as players failed to step out quickly enough.</p>
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">Very high pressing line gave lots of spaces behind the defensive line for Juventus to exploit &mdash; evident in goals conceded (#10 playing ball into space for #9).</p>
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">Defensive shape reduced spaces in the box but gave space in front for Juventus to shoot from with no press or pressure, leading to another goal.</p>
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">Keeping it simple at the back would have helped. Failing to clear the ball early broke the offside trap through turnovers in the last third.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Attacking S&W -->
+          <div>
+            <h3 class="font-display text-xl font-semibold text-ivory-100 mb-5">Attacking</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-4">
+                <p class="text-[10px] text-green-400 uppercase tracking-[0.2em] font-body font-medium flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  Strengths
+                </p>
+                <div class="strength-card bg-base-700/30 rounded-r-lg p-4 space-y-3">
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">Good possession and ball retention throughout the match.</p>
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">Quick short passes to create spaces in and around the box.</p>
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">More bodies in the final third gave them room for one-twos to beat markers and create shooting spaces.</p>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <p class="text-[10px] text-red-400 uppercase tracking-[0.2em] font-body font-medium flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                  Weaknesses
+                </p>
+                <div class="weakness-card bg-base-700/30 rounded-r-lg p-4 space-y-3">
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">Failed to make the huge number of players in the opposition box count by not crossing quicker or crossing at all. Gameplay was limited to short passes only.</p>
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">Loss of possession meant a high line and spaces behind for counters or long balls.</p>
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">Too many players forward meant slower defensive shape recovery, which was the case for the final goal conceded.</p>
+                  <p class="text-sm text-ivory-300 font-light leading-relaxed">Failed to control the game in the final moments &mdash; sent more bodies forward with a 2-goal lead, losing shape and effectiveness.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== SET PIECES ====== -->
+        <section id="set-pieces" class="section-anchor mb-16 reveal">
+          <div class="flex items-center gap-4 mb-8">
+            <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase font-medium">07</p>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <h2 class="font-display text-3xl lg:text-4xl font-semibold mb-2">Set Piece <span class="italic text-royal-gradient">Analysis</span></h2>
+          <div class="royal-line mt-3 mb-8"></div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Attacking corners -->
+            <div class="bg-base-700/40 rounded-xl border border-white/[0.04] overflow-hidden">
+              <div class="px-5 py-3 border-b border-white/[0.04]">
+                <p class="text-[10px] text-royal-400 uppercase tracking-[0.2em] font-body font-medium">Attacking Corners</p>
+              </div>
+              <div class="tactical-img m-3 cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/corner-attacking.png" alt="Attacking corner routine" loading="lazy">
+              </div>
+              <div class="px-5 pb-4">
+                <ul class="space-y-2 text-xs text-ivory-400 font-light leading-relaxed">
+                  <li><strong class="text-ivory-200">#24 Svensson</strong> &mdash; Set piece taker</li>
+                  <li><strong class="text-ivory-200">#14 Beier</strong> &mdash; Front post run for header</li>
+                  <li><strong class="text-ivory-200">#9, #8, #3</strong> &mdash; Contest header in the middle</li>
+                  <li><strong class="text-ivory-200">#5 Bensebaini</strong> &mdash; Back post run</li>
+                  <li><strong class="text-ivory-200">#2 Couto</strong> &mdash; Defensive position</li>
+                  <li><strong class="text-ivory-200">#27, #26</strong> &mdash; Edge of box to attack/defend</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Defending corners -->
+            <div class="bg-base-700/40 rounded-xl border border-white/[0.04] overflow-hidden">
+              <div class="px-5 py-3 border-b border-white/[0.04]">
+                <p class="text-[10px] text-royal-400 uppercase tracking-[0.2em] font-body font-medium">Defending Corners</p>
+              </div>
+              <div class="tactical-img m-3 cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="images/match-report/corner-defending.png" alt="Defending corner setup" loading="lazy">
+              </div>
+              <div class="px-5 pb-4">
+                <ul class="space-y-2 text-xs text-ivory-400 font-light leading-relaxed">
+                  <li><strong class="text-ivory-200">#2</strong> &mdash; Close to taker to prevent short corner</li>
+                  <li><strong class="text-ivory-200">#27</strong> &mdash; Top of box to prevent ball being played outside</li>
+                  <li><strong class="text-ivory-200">#5, #20, #3</strong> &mdash; Mark best headers from Juventus</li>
+                  <li><strong class="text-ivory-200">#8, #14, #13</strong> &mdash; Mark other Juventus players</li>
+                  <li><strong class="text-ivory-200">#24</strong> &mdash; Front post; <strong class="text-ivory-200">#26</strong> &mdash; Back post</li>
+                  <li><strong class="text-ivory-200">#9</strong> &mdash; Center of box to give GK space to clear</li>
+                  <li><strong class="text-ivory-200">GK</strong> &mdash; Alone with space to come collect/punch</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== GENERAL ANALYSIS ====== -->
+        <section id="general" class="section-anchor mb-16 reveal">
+          <div class="flex items-center gap-4 mb-8">
+            <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase font-medium">08</p>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <h2 class="font-display text-3xl lg:text-4xl font-semibold mb-2">General <span class="italic text-royal-gradient">Analysis</span></h2>
+          <div class="royal-line mt-3 mb-8"></div>
+
+          <div class="space-y-4">
+            <div class="qa-item bg-base-700/30 rounded-r-lg p-5 transition-colors">
+              <p class="text-xs text-royal-400 font-body font-medium mb-2">How many players do they have in midfield?</p>
+              <p class="text-sm text-ivory-300 font-light leading-relaxed">This varied between 4 to 3, which was dependent on the opposition's gameplay.</p>
+            </div>
+            <div class="qa-item bg-base-700/30 rounded-r-lg p-5 transition-colors">
+              <p class="text-xs text-royal-400 font-body font-medium mb-2">How deep do the flanks play? Attacking or defending?</p>
+              <p class="text-sm text-ivory-300 font-light leading-relaxed">They played high up when attacking and tucked in deep when defending.</p>
+            </div>
+            <div class="qa-item bg-base-700/30 rounded-r-lg p-5 transition-colors">
+              <p class="text-xs text-royal-400 font-body font-medium mb-2">How tall is the GK and how is he with crosses?</p>
+              <p class="text-sm text-ivory-300 font-light leading-relaxed">He is 1.96m tall and is good with crosses and getting the ball in the air.</p>
+            </div>
+            <div class="qa-item bg-base-700/30 rounded-r-lg p-5 transition-colors">
+              <p class="text-xs text-royal-400 font-body font-medium mb-2">Does the GK throw the ball out and if so who is willing to accept it?</p>
+              <p class="text-sm text-ivory-300 font-light leading-relaxed">He always played or threw it short to the CBs.</p>
+            </div>
+            <div class="qa-item bg-base-700/30 rounded-r-lg p-5 transition-colors">
+              <p class="text-xs text-royal-400 font-body font-medium mb-2">Do they build up from the back, through midfield or direct to the final 3rd?</p>
+              <p class="text-sm text-ivory-300 font-light leading-relaxed">In the 1st half they played from the back, while in the 2nd half they went directly with long balls.</p>
+            </div>
+            <div class="qa-item bg-base-700/30 rounded-r-lg p-5 transition-colors">
+              <p class="text-xs text-royal-400 font-body font-medium mb-2">How well and early do they pressure the ball?</p>
+              <p class="text-sm text-ivory-300 font-light leading-relaxed">They pressed early, right from the goal kick restarts.</p>
+            </div>
+            <div class="qa-item bg-base-700/30 rounded-r-lg p-5 transition-colors">
+              <p class="text-xs text-royal-400 font-body font-medium mb-2">Do they have any quick players?</p>
+              <p class="text-sm text-ivory-300 font-light leading-relaxed">Yes &mdash; <strong class="text-ivory-100">#27 Adeyemi</strong> and <strong class="text-ivory-100">#9 Guirassy</strong>.</p>
+            </div>
+            <div class="qa-item bg-base-700/30 rounded-r-lg p-5 transition-colors">
+              <p class="text-xs text-royal-400 font-body font-medium mb-2">Do they have any aggressive players?</p>
+              <p class="text-sm text-ivory-300 font-light leading-relaxed"><strong class="text-ivory-100">#2 Yan Couto</strong> &mdash; aggressive in tackles and challenges.</p>
+            </div>
+            <div class="qa-item bg-base-700/30 rounded-r-lg p-5 transition-colors">
+              <p class="text-xs text-royal-400 font-body font-medium mb-2">Is there anyone frightened of a challenge?</p>
+              <p class="text-sm text-ivory-300 font-light leading-relaxed">None noticed in this game.</p>
+            </div>
+            <div class="qa-item bg-base-700/30 rounded-r-lg p-5 transition-colors">
+              <p class="text-xs text-royal-400 font-body font-medium mb-2">Were there any penalties and if so who took them and where did he place it?</p>
+              <p class="text-sm text-ivory-300 font-light leading-relaxed">Yes &mdash; lots of fuss over who should take it. <strong class="text-ivory-100">#5 Bensebaini</strong> eventually played it after manager's intervention. He played it to his bottom left, pausing midair before striking with his kicking foot.</p>
+            </div>
+            <div class="qa-item bg-base-700/30 rounded-r-lg p-5 transition-colors">
+              <p class="text-xs text-royal-400 font-body font-medium mb-2">Is there anybody who did not play today that should have?</p>
+              <p class="text-sm text-ivory-300 font-light leading-relaxed"><strong class="text-ivory-100">Emre Can</strong> &mdash; out injured (groin).</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== PLAYER ANALYSIS ====== -->
+        <section id="players" class="section-anchor mb-16 reveal">
+          <div class="flex items-center gap-4 mb-8">
+            <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase font-medium">09</p>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <h2 class="font-display text-3xl lg:text-4xl font-semibold mb-2">Player <span class="italic text-royal-gradient">Analysis</span></h2>
+          <div class="royal-line mt-3 mb-8"></div>
+
+          <p class="text-[10px] text-bvb uppercase tracking-[0.2em] font-body mb-5 font-medium">Borussia Dortmund &mdash; Individual Assessments</p>
+
+          <div class="space-y-4">
+            <!-- Starters -->
+            <div class="bg-base-700/40 rounded-xl border border-white/[0.04] overflow-hidden">
+              <div class="px-5 py-3 border-b border-white/[0.04]">
+                <p class="text-[10px] text-royal-400 uppercase tracking-[0.2em] font-body font-medium">Starting XI</p>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="data-table w-full">
+                  <thead>
+                    <tr>
+                      <th class="w-12">No</th>
+                      <th class="w-40">Name</th>
+                      <th>Assessment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-ivory-500 align-top">1</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Gregor Kobel</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Always came out for corner kicks and is decent in the air. Good with the ball and was a good outlet for retaining possession for his team.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-ivory-500 align-top">2</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Yan Couto</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Always looking to dribble rather than pass. A great attacking threat with a nice shot into the net. However, he stayed with the ball too long and lost possession several times.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-ivory-500 align-top">3</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Waldemar Anton</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Good communication, often calling teammates' attention to players and situations around them. Got a yellow card for a tactical foul, breaking up a one-two that could have led to a counter-attack 1v1 against their GK.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-ivory-500 align-top">5</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Ramy Bensebaini</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Good defensive cover and generally good on the ball. Well-taken penalty kick. Good tracking and awareness, instrumental in intercepting a key pass on 20'51 to prevent a goal-scoring opportunity. However, failed to clear the ball in the final minutes, opting for a pass in the defensive third that got intercepted, bringing about the 4th goal conceded.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-ivory-500 align-top">8</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Felix Nmecha</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Good on and off possession, tracked runners behind and around him. Kept passes neat and simple. Scored their second goal immediately after they conceded, curling the ball to his right with the goalkeeper thinking it was going out. Substituted 70'18 for Jobe Bellingham.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-ivory-500 align-top">9</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Serhou Guirassy</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Always a good outlet when attacking, running into channels ready to receive in the middle third. Good through ball to Adeyemi to create a goal-scoring chance. Constant threat in the final third, available for short passes &mdash; took a great save to keep him off the score sheet. Substituted 90+2' for Pascal Gross.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-ivory-500 align-top">14</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Maximilian Beier</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Constantly pressing and marking players in his zone. Good with the ball and helped retain possession. Substituted in the 2nd half for Julian Brandt at 70'19.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-ivory-500 align-top">20</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Marcel Sabitzer</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Always available as an outlet in midfield. Constantly pressing forward and tracking back. Not scared of committing into tackles, instrumental in creating attacking turnovers that led to goals.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-ivory-500 align-top">24</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Daniel Svensson</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Good positioning, good in the air and good ball retention. Vital in their possession gameplan.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-ivory-500 align-top">26</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Julian Ryerson</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Good tracking and awareness of players around him. Defensively sound and good in the air.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-ivory-500 align-top">27</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Karim Adeyemi</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">His pace and dribbling ability was a problem for the opposition all through the game. Most attacks in the final third went through him. Scored the first goal and assisted the second. <strong class="text-bvb">Key player.</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Substitutes -->
+            <div class="bg-base-700/40 rounded-xl border border-white/[0.04] overflow-hidden">
+              <div class="px-5 py-3 border-b border-white/[0.04]">
+                <p class="text-[10px] text-royal-400 uppercase tracking-[0.2em] font-body font-medium">Substitutes Used</p>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="data-table w-full">
+                  <thead>
+                    <tr>
+                      <th class="w-12">No</th>
+                      <th class="w-40">Name</th>
+                      <th>Assessment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-ivory-500 align-top">7</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Jobe Bellingham</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Very good and assured on the ball. Brought a different dimension to how they attacked and was vital in their equalizer.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-ivory-500 align-top">10</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Julian Brandt</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Main outlet for GK long balls. Good in the air, won aerial duels when the goalkeeper went long. Good with the ball and created the chance that brought about the penalty. Always willing to run behind the defensive line.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-ivory-500 align-top">13</td>
+                      <td class="text-ivory-200 font-medium align-top whitespace-nowrap">Pascal Gross</td>
+                      <td class="text-ivory-400 font-light text-sm leading-relaxed">Brought on to help see the game out. Unfortunately could not make much impact when he came on.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== GAME ASSESSMENT ====== -->
+        <section id="assessment" class="section-anchor mb-8 reveal">
+          <div class="flex items-center gap-4 mb-8">
+            <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase font-medium">10</p>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <h2 class="font-display text-3xl lg:text-4xl font-semibold mb-2">Game <span class="italic text-royal-gradient">Assessment</span></h2>
+          <div class="royal-line mt-3 mb-8"></div>
+
+          <div class="bg-base-700/40 rounded-xl border border-royal-400/10 p-6 lg:p-8">
+            <div class="space-y-5 text-sm text-ivory-300 font-light leading-relaxed">
+              <p>
+                Dortmund started the game with a good gameplan to limit the chances and spaces for Juventus to play with. This brought about a <strong class="text-ivory-100 font-medium">tight 1st half</strong>, as both teams were limited to fewer chances being created. Occasionally, Dortmund players marked in clusters, blocking the Juventus players with the ball from seeing or being able to play out easily. Meanwhile, this was also the case when attacking, as they sometimes played in clusters thereby boxing themselves in each other's path and losing possession.
+              </p>
+              <p>
+                The <strong class="text-ivory-100 font-medium">2nd half saw a change in approach</strong> as Dortmund moved the ball faster and every attack went through <strong class="bvb font-medium">Adeyemi</strong>, which resulted in more chances created and goal-scoring opportunities being exploited. A faster ball movement resulted in <strong class="text-ivory-100 font-medium">3 goals and a penalty scored</strong>. However, this also left them exposed &mdash; as they continued to press with numbers forward, they left spaces at the back for counter-attacks.
+              </p>
+              <p>
+                Possession was lost in the middle third and a forward pass released the Juventus striker to run into a 1v1 situation to score. They had a very mobile backline which constantly stepped out fast as the ball changed direction, but a <strong class="text-red-400 font-medium">poor pass in the defensive third</strong> rather than clearance meant Juventus won the ball deep, and a quick cross into the box caught their offside line out of shape &mdash; this was evident in the last 2 goals they conceded in stoppage time.
+              </p>
+              <p>
+                <strong class="text-red-400 font-medium">Lack of proper game management cost them the game</strong>, as they went into stoppage time leading <strong class="text-ivory-100 font-medium">4&ndash;2</strong>. Good ball retention would have seen them win. After conceding the 3rd goal, they pushed more players forward to score a 5th rather than seeing the game out. They lost possession and shape and conceded a 4th goal at the tail end of the game.
+              </p>
+              <p class="text-ivory-100 font-medium border-t border-white/[0.06] pt-5 mt-5">
+                Good gameplan and poor game management cost them the win in this game.
+              </p>
+            </div>
+          </div>
+
+          <!-- PFSA credit -->
+          <div class="mt-8 flex items-center gap-4 text-xs text-ivory-500 font-light">
+            <div class="w-px h-8 bg-white/[0.06]"></div>
+            <p>Level 2 Talent Identification in Football &mdash; PFSA &mdash; <a href="https://www.thepfsa.co.uk" class="text-royal-400 hover:underline" target="_blank" rel="noopener">thepfsa.co.uk</a></p>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/[0.04] pt-20 pb-10 bg-base-900">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+
+        <div>
+          <a href="index.html">
+            <img src="images/RoyalQlogo-blue.svg" alt="RoyalQ logo" class="w-32 brightness-0 invert opacity-70">
+          </a>
+          <p class="text-ivory-500 mt-5 text-sm font-light leading-relaxed">Manage your contracts with ease using RoyalQ. Our platform simplifies every step, saving you time and effort.</p>
+          <div class="flex gap-4 mt-6">
+            <a href="#" class="w-9 h-9 rounded border border-white/[0.06] flex items-center justify-center hover:border-royal-400/30 hover:bg-royal-400/[0.05] transition-all">
+              <img src="images/instagram.svg" alt="Instagram" class="w-4 brightness-0 invert opacity-50">
+            </a>
+            <a href="#" class="w-9 h-9 rounded border border-white/[0.06] flex items-center justify-center hover:border-royal-400/30 hover:bg-royal-400/[0.05] transition-all">
+              <img src="images/facebook.svg" alt="Facebook" class="w-4 brightness-0 invert opacity-50">
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs text-royal-400 font-body tracking-[0.2em] uppercase mb-5">Product</h4>
+          <ul class="space-y-3">
+            <li><a href="services.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Features</a></li>
+            <li><a href="services.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">How It Works</a></li>
+            <li><a href="contact.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Pricing</a></li>
+            <li><a href="services.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Integrations</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs text-royal-400 font-body tracking-[0.2em] uppercase mb-5">Company</h4>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">About</a></li>
+            <li><a href="contact.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Contact</a></li>
+            <li><a href="#" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Careers</a></li>
+            <li><a href="#" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Blog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs text-royal-400 font-body tracking-[0.2em] uppercase mb-5">Newsletter</h4>
+          <p class="text-ivory-500 text-sm mb-4 font-light">Get the latest updates and insights on contract management.</p>
+          <div class="flex">
+            <input type="email" placeholder="you@company.com" class="bg-base-700/50 border border-white/[0.06] rounded-l px-4 py-3 text-sm text-ivory-100 placeholder-ivory-500 outline-none focus:border-royal-400/40 w-full font-body transition-colors">
+            <button class="bg-royal-400 text-white px-5 py-3 rounded-r text-sm font-semibold font-body hover:bg-royal-300 transition-colors whitespace-nowrap tracking-wide">Subscribe</button>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-12 border-white/[0.04]">
+
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-ivory-500/60 text-xs font-light tracking-wide">&copy; 2024 RoyalQ. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a href="#" class="text-ivory-500/60 hover:text-royal-400 text-xs transition-colors font-light tracking-wide">Terms</a>
+          <a href="#" class="text-ivory-500/60 hover:text-royal-400 text-xs transition-colors font-light tracking-wide">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const navBtn = document.querySelector("#menu");
+    const menuBar = document.querySelector('[role="menubar"]');
+
+    navBtn.addEventListener("click", () => {
+      const isExpanded = JSON.parse(navBtn.getAttribute("aria-expanded"));
+      navBtn.setAttribute("aria-expanded", !isExpanded);
+      menuBar.classList.toggle("hidden");
+      menuBar.classList.toggle("flex");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!navBtn.contains(e.target) && !menuBar.contains(e.target)) {
+        navBtn.setAttribute("aria-expanded", "false");
+        menuBar.classList.add("hidden");
+        menuBar.classList.remove("flex");
+      }
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+    );
+    revealElements.forEach((el) => revealObserver.observe(el));
+
+    // Smooth header on scroll
+    const header = document.querySelector("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        header.style.borderBottomColor = "rgba(96, 128, 250, 0.06)";
+      } else {
+        header.style.borderBottomColor = "";
+      }
+    }, { passive: true });
+
+    // TOC active state on scroll
+    const tocLinks = document.querySelectorAll(".toc-link");
+    const sections = document.querySelectorAll(".section-anchor");
+
+    const tocObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            tocLinks.forEach((link) => {
+              link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+            });
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "-100px 0px -60% 0px" }
+    );
+    sections.forEach((section) => tocObserver.observe(section));
+
+    // Mobile TOC toggle
+    const tocToggle = document.getElementById("toc-toggle");
+    const tocMobile = document.getElementById("toc-mobile");
+    let tocOpen = false;
+
+    tocToggle.addEventListener("click", () => {
+      tocOpen = !tocOpen;
+      tocMobile.style.transform = tocOpen ? "translateY(0)" : "translateY(100%)";
+    });
+
+    document.querySelectorAll(".toc-mobile-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        tocOpen = false;
+        tocMobile.style.transform = "translateY(100%)";
+      });
+    });
+
+    // Lightbox for tactical images
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    function openLightbox(el) {
+      const img = el.querySelector("img");
+      if (img) {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    lightbox.addEventListener("click", () => {
+      lightbox.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("active")) {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+  </script>
+
+</body>
+</html>

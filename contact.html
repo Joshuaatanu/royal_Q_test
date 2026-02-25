@@ -5,238 +5,192 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StackATS - Home</title>
-  <!-- output css file -->
-  <link rel="stylesheet" href="css/output.css">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css'>
-  <!-- fonts cdn -->
+  <title>RoyalQ - Contact Us</title>
+  <meta name="description" content="Get in touch with RoyalQ. Start your free trial, request a demo, or reach out to our sales and support team.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
-    rel="stylesheet">
-  <!-- tailwindcss cdn -->
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-  <style>
-    body {
-      font-family: 'Red Hat Display', sans-serif;
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base: { 900: '#060910', 800: '#0a0f1c', 700: '#0f1525', 600: '#151d32', 500: '#1a2440' },
+            royal: { 50: '#eef2ff', 100: '#dce4fe', 200: '#bfcdfe', 300: '#93aafd', 400: '#6080fa', 500: '#3b5cf6', 600: '#2441eb', 700: '#1a32d8', 800: '#1c2baf' },
+            ivory: { 50: '#faf8f5', 100: '#f0ece4', 200: '#d8d2c6', 300: '#b5ad9e', 400: '#8a8275', 500: '#6b6560' },
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body: ['"Outfit"', 'sans-serif'],
+          },
+        }
+      }
     }
+  </script>
+  <style>
+    body { font-family: 'Outfit', sans-serif; background: #060910; color: #f0ece4; }
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+    .noise::before { content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; }
+    .text-royal-gradient { background: linear-gradient(135deg, #bfcdfe 0%, #6080fa 50%, #bfcdfe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
+    .reveal-stagger > .reveal:nth-child(2) { transition-delay: 120ms; }
+    .reveal-stagger > .reveal:nth-child(3) { transition-delay: 240ms; }
+    .royal-line { width: 48px; height: 1px; background: linear-gradient(90deg, #6080fa, transparent); }
+    .card-glow { position: relative; transition: all 0.4s ease; }
+    .card-glow::after { content: ''; position: absolute; inset: 0; border-radius: inherit; opacity: 0; transition: opacity 0.4s ease; box-shadow: 0 0 40px rgba(96, 128, 250, 0.08), inset 0 1px 0 rgba(96, 128, 250, 0.15); }
+    .card-glow:hover::after { opacity: 1; }
+    .card-glow:hover { border-color: rgba(96, 128, 250, 0.3); transform: translateY(-2px); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #6080fa; transition: width 0.3s ease; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #060910; }
+    ::-webkit-scrollbar-thumb { background: #1a2440; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6080fa; }
+    .hero-orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
+    .btn-royal { position: relative; overflow: hidden; background: linear-gradient(135deg, #6080fa 0%, #3b5cf6 100%); color: #ffffff; }
+    .btn-royal::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transition: left 0.5s ease; }
+    .btn-royal:hover::before { left: 100%; }
   </style>
 </head>
 
-<body class="md:bg-red-200 lg:bg-white">
+<body class="noise">
 
-
-
-  <header class="absolute sticky mx-auto p-3 lg:p-0 left-0 top-0 z-50 bg-white/90 w-full backdrop-blur">
-    <div class="lg:mx-auto max-w-7xl mx-5 w-auto mt-5">
-     <div class="relative flex h-full items-center justify-between my-auto">
-        
-            <a href="index.html">
-                <img src="images/RoyalQlogo-blue.svg" alt="logo" class="w-32 lg:w-40">
-              </a>
-            
-          <button id="menu" class="
-          lg:hidden
-          p-2
-          focus-visible:ring-sky-100
-          text-slate-700
-          hover:text-neutral-600
-          transition-colors
-          " aria-expanded="false"
-          aria-label="Open Menu">
-
-
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
-            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" 
-              d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
-            </svg>
-
-
-          </button>
-
-          <div role="menubar" class="
-          hidden
-          flex-col
-          gap-4
-          absolute
-          z-40
-          right-0
-          left-0
-          rounded-lg
-          top-16
-          shadow-sm
-          bg-white
-          text-left
-          p-6
-          border
-          text-lg
-          items-left
-          w-auto
-          border-sky-200
-          lg:flex
-          lg:flex-row
-          lg:static
-          lg:border-none
-          lg:space-x-8
-          lg:items-center
-          lg:bg-transparent
-          lg:shadow-none
-
-
-          ">
-        <a href="index.html" class="hover:text-slate-400 duration-200">Home</a>
-        <a href="about.html" class="hover:text-slate-400 duration-200">About</a>
-        <a href="services.html" class="hover:text-slate-400 duration-200">services</a>
-        <a href="contact.html" class="hover:text-slate-400 duration-200">Contact</a>
-
-        
-        <!-- <a href="register.html" class="btn px-8 text-white text-center text-md">Get Started</a> -->
-        </div>
-     </div>
-     </div>
-  </header>
-
-
-  <div class="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900 ">
-    <div class="container mx-auto">
-      <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-lg shadow-lg">
-        <div class="text-center">
-          <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
-            Contact Us
-          </h1>
-          <p class="text-gray-400 dark:text-gray-400">
-            Fill up the form below to send us a message.
-          </p>
-        </div>
-        <div class="m-7">
-          <form action="https://api.web3forms.com/submit" method="POST" id="form">
-            <input type="hidden" name="access_key" value="173581ca-d082-4233-899e-cea23a14fdbe" />
-            <input type="hidden" name="subject" value="New Submission from Web3Forms" />
-            <input type="hidden" name="redirect" value="https://web3forms.com/success" />
-            <input type="checkbox" name="botcheck" id="" style="display: none;" />
-            <div class="mb-6">
-              <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full Name</label>
-              <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-            </div>
-            <div class="mb-6">
-              <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
-              <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-            </div>
-            <div class="mb-6">
-              <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone Number</label>
-              <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-            </div>
-            <div class="mb-6">
-              <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Your Message</label>
-  
-              <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required></textarea>
-            </div>
-            <div class="mb-6">
-              <button type="submit" class="w-full px-3 py-4 text-white bg-blue-400 rounded-md focus:bg-indigo-600 focus:outline-none">
-                Send Message
-              </button>
-            </div>
-            <p class="text-base text-center text-gray-400" id="result"></p>
-          </form>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-base-900/80 border-b border-white/[0.04]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="images/RoyalQlogo-blue.svg" alt="RoyalQ logo" class="w-28 lg:w-36 brightness-0 invert opacity-90">
+        </a>
+        <button id="menu" class="lg:hidden p-2 text-ivory-300 hover:text-royal-400 transition-colors" aria-expanded="false" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" /></svg>
+        </button>
+        <div role="menubar" class="hidden flex-col gap-5 absolute z-40 right-4 left-4 rounded-xl top-16 bg-base-700 text-left p-6 border border-royal-400/10 text-lg lg:flex lg:flex-row lg:static lg:border-none lg:space-x-10 lg:items-center lg:bg-transparent lg:p-0 lg:gap-0 shadow-2xl lg:shadow-none">
+          <a href="index.html" class="nav-link text-ivory-300 hover:text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">Home</a>
+          <a href="about.html" class="nav-link text-ivory-300 hover:text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">About</a>
+          <a href="services.html" class="nav-link text-ivory-300 hover:text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">Services</a>
+          <a href="contact.html" class="nav-link active text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">Contact</a>
+          <a href="contact.html" class="btn-royal px-6 py-2.5 rounded font-body text-sm tracking-wide uppercase font-semibold text-center">Get Started</a>
         </div>
       </div>
     </div>
-  </div>
+  </header>
 
+  <!-- Heading Section -->
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-semibold leading-tight">Get in <span class="italic text-royal-gradient">touch</span></h1>
+        <div class="royal-line mt-6 mx-auto"></div>
+        <p class="text-lg text-ivory-400 mt-6 font-light leading-relaxed">Have a question or ready to get started? We'd love to hear from you. Fill out the form and our team will get back to you within 24 hours.</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- Contact Content -->
+  <section class="pb-24 lg:pb-36">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="max-w-2xl mx-auto">
 
+        <!-- Contact Form -->
+        <div class="reveal">
+          <div class="bg-base-700/30 rounded-xl border border-white/[0.04] p-8">
+            <form action="https://api.web3forms.com/submit" method="POST" id="form">
+              <input type="hidden" name="access_key" value="173581ca-d082-4233-899e-cea23a14fdbe" />
+              <input type="hidden" name="subject" value="New Submission from RoyalQ Website" />
+              <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+              <input type="checkbox" name="botcheck" style="display: none;" />
 
-  <footer class="bg-zinc-800 pt-20 lg:p-20 p-10 mt-40">
-    <div class="mx-auto max-w-7xl">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label for="name" class="block mb-2 text-xs font-body font-medium text-ivory-300 uppercase tracking-wider">Full Name</label>
+                  <input type="text" name="name" id="name" placeholder="John Doe" required class="bg-base-700/50 border border-white/[0.06] rounded px-4 py-3 text-sm text-ivory-100 placeholder-ivory-500 outline-none focus:border-royal-400/40 w-full font-body transition-colors" />
+                </div>
+                <div>
+                  <label for="email" class="block mb-2 text-xs font-body font-medium text-ivory-300 uppercase tracking-wider">Email Address</label>
+                  <input type="email" name="email" id="email" placeholder="you@company.com" required class="bg-base-700/50 border border-white/[0.06] rounded px-4 py-3 text-sm text-ivory-100 placeholder-ivory-500 outline-none focus:border-royal-400/40 w-full font-body transition-colors" />
+                </div>
+                <div>
+                  <label for="phone" class="block mb-2 text-xs font-body font-medium text-ivory-300 uppercase tracking-wider">Phone Number</label>
+                  <input type="text" name="phone" id="phone" placeholder="+1 (555) 123-4567" class="bg-base-700/50 border border-white/[0.06] rounded px-4 py-3 text-sm text-ivory-100 placeholder-ivory-500 outline-none focus:border-royal-400/40 w-full font-body transition-colors" />
+                </div>
+                <div>
+                  <label for="company" class="block mb-2 text-xs font-body font-medium text-ivory-300 uppercase tracking-wider">Company</label>
+                  <input type="text" name="company" id="company" placeholder="Your Company" class="bg-base-700/50 border border-white/[0.06] rounded px-4 py-3 text-sm text-ivory-100 placeholder-ivory-500 outline-none focus:border-royal-400/40 w-full font-body transition-colors" />
+                </div>
+              </div>
 
-      <div class="grid lg:grid-cols-6 lg:gap-10 gap-20">
+              <div class="mb-6">
+                <label for="message" class="block mb-2 text-xs font-body font-medium text-ivory-300 uppercase tracking-wider">Your Message</label>
+                <textarea rows="5" name="message" id="message" placeholder="Tell us about your contract management needs..." required class="bg-base-700/50 border border-white/[0.06] rounded px-4 py-3 text-sm text-ivory-100 placeholder-ivory-500 outline-none focus:border-royal-400/40 w-full font-body transition-colors resize-none"></textarea>
+              </div>
 
-        <!-- col 1 -->
-        <div class="lg:col-span-2">
-          <a href="index.html">
-            <img src="../images/RoyalQlogo-blue.svg" alt="logo image" class="w-40 text-white">
-          </a>
-          <p class="text-slate-400 mt-4 lg:text-sm">
-            Manage your contracts and mobilse with ease using RoyalQ.
-            Our company simplifies the application process,
-            saving you time and effort.
-          </p>
-        </div>
-
-        <!-- col 2 -->
-        <div class="">
-          <ul class="text-lg md:text-md">
-            <li><a href="#" class="text-sky-400">Apply Now</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">FAQ</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Services</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Resources</a></li>
-          </ul>
-        </div>
-
-
-        <!-- col 3 -->
-        <div class="">
-          <ul class="text-lg md:text-md">
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Affiliates</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Partners</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Donations</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Founders</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Our Team</a></li>
-          </ul>
-        </div>
-
-
-
-        <!-- col 4 -->
-        <div class="lg:col-span-2">
-          <h1 class="text-white text-2xl">Subscribe To Our Newsletter</h1>
-
-          <div class="border border-slate-600 mt-5 rounded-full w-[90%] md:w-[60%] lg:w-full">
-
-            <!-- input field box -->
-            <div class="p-1.5 flex justify-between">
-              <input class="font-semibold text-white lg:text-sm outline-none bg-transparent ml-3" type="email"
-                placeholder="123@example.com">
-              <button type="submit" class="px-6 py-4 lg:p-2.5
-                       lg:text-sm xl:mr-0 xl:px-5 xl:py-3 bg-sky-400 text-white rounded-full">Subscribe</button>
-            </div>
-          </div>
-          <!-- icons -->
-          <div class="mt-5 flex justify-center space-x-16 lg:space-x-10 md:justify-start">
-
-
-            <a href="#">
-              <img src="../images/instagram.svg" alt="dribble icon" class="w-8 lg:min-w-[25px]">
-            </a>
-            <a href="#">
-              <img src="../images/facebook.svg" alt="dribble icon" class="w-8 lg:min-w-[25px]">
-            </a>
-
+              <button type="submit" class="btn-royal w-full sm:w-auto px-8 py-3.5 rounded font-body text-sm tracking-widest uppercase font-semibold">
+                Send Message
+              </button>
+              <p class="text-sm text-center sm:text-left text-ivory-500 mt-4" id="result"></p>
+            </form>
           </div>
         </div>
-
       </div>
+    </div>
+  </section>
 
-      <hr class="my-20 opacity-20">
-
-      <div class="grid grid-cols-1 md:grid-cols-2 md:justify-between">
-        <p class="mb-5 md:mb-0 text-slate-500">&copy; Copyright Web Design & Development</p>
-
-        <div class="space-x-6 md:ml-auto">
-          <a href="#" class="text-slate-300 underline">Terms and Conditions</a>
-          <a href="#" class="text-slate-300 underline">Privacy Policy</a>
+  <!-- Footer -->
+  <footer class="border-t border-white/[0.04] pt-20 pb-10 bg-base-900">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+        <div>
+          <a href="index.html"><img src="images/RoyalQlogo-blue.svg" alt="RoyalQ logo" class="w-32 brightness-0 invert opacity-70"></a>
+          <p class="text-ivory-500 mt-5 text-sm font-light leading-relaxed">Manage your contracts with ease using RoyalQ. Our platform simplifies every step, saving you time and effort.</p>
+          <div class="flex gap-4 mt-6">
+            <a href="#" class="w-9 h-9 rounded border border-white/[0.06] flex items-center justify-center hover:border-royal-400/30 hover:bg-royal-400/[0.05] transition-all"><img src="images/instagram.svg" alt="Instagram" class="w-4 brightness-0 invert opacity-50"></a>
+            <a href="#" class="w-9 h-9 rounded border border-white/[0.06] flex items-center justify-center hover:border-royal-400/30 hover:bg-royal-400/[0.05] transition-all"><img src="images/facebook.svg" alt="Facebook" class="w-4 brightness-0 invert opacity-50"></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-xs text-royal-400 font-body tracking-[0.2em] uppercase mb-5">Product</h4>
+          <ul class="space-y-3">
+            <li><a href="services.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Features</a></li>
+            <li><a href="services.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">How It Works</a></li>
+            <li><a href="contact.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Pricing</a></li>
+            <li><a href="services.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Integrations</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs text-royal-400 font-body tracking-[0.2em] uppercase mb-5">Company</h4>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">About</a></li>
+            <li><a href="contact.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Contact</a></li>
+            <li><a href="#" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Careers</a></li>
+            <li><a href="#" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs text-royal-400 font-body tracking-[0.2em] uppercase mb-5">Newsletter</h4>
+          <p class="text-ivory-500 text-sm mb-4 font-light">Get the latest updates and insights on contract management.</p>
+          <div class="flex">
+            <input type="email" placeholder="you@company.com" class="bg-base-700/50 border border-white/[0.06] rounded-l px-4 py-3 text-sm text-ivory-100 placeholder-ivory-500 outline-none focus:border-royal-400/40 w-full font-body transition-colors">
+            <button class="bg-royal-400 text-white px-5 py-3 rounded-r text-sm font-semibold font-body hover:bg-royal-300 transition-colors whitespace-nowrap tracking-wide">Subscribe</button>
+          </div>
         </div>
       </div>
-
+      <hr class="my-12 border-white/[0.04]">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-ivory-500/60 text-xs font-light tracking-wide">&copy; 2024 RoyalQ. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a href="#" class="text-ivory-500/60 hover:text-royal-400 text-xs transition-colors font-light tracking-wide">Terms</a>
+          <a href="#" class="text-ivory-500/60 hover:text-royal-400 text-xs transition-colors font-light tracking-wide">Privacy</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <!-- footer --> 
-   <script src="./main.js"></script>
-  <script src='https://js.hcaptcha.com/1/api.js'></script>
- 
-
+  <script src="./main.js"></script>
 </body>
 
 </html>

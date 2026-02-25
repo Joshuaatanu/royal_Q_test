@@ -5,365 +5,549 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StackATS - Home</title>
-  <!-- output css file -->
-  <link rel="stylesheet" href="css/output.css">
-  <!-- fonts cdn -->
+  <title>RoyalQ - Contract Management Made Simple</title>
+  <meta name="description" content="RoyalQ streamlines contract management for modern teams. Organize, automate, and track every contract from start to finish.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
-    rel="stylesheet">
-  <!-- tailwindcss cdn -->
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base: {
+              900: '#060910',
+              800: '#0a0f1c',
+              700: '#0f1525',
+              600: '#151d32',
+              500: '#1a2440',
+            },
+            royal: {
+              50: '#eef2ff',
+              100: '#dce4fe',
+              200: '#bfcdfe',
+              300: '#93aafd',
+              400: '#6080fa',
+              500: '#3b5cf6',
+              600: '#2441eb',
+              700: '#1a32d8',
+              800: '#1c2baf',
+            },
+            ivory: {
+              50: '#faf8f5',
+              100: '#f0ece4',
+              200: '#d8d2c6',
+              300: '#b5ad9e',
+              400: '#8a8275',
+              500: '#6b6560',
+            },
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body: ['"Outfit"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
   <style>
     body {
-      font-family: 'Red Hat Display', sans-serif;
+      font-family: 'Outfit', sans-serif;
+      background: #060910;
+      color: #f0ece4;
+    }
+
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* Noise texture overlay */
+    .noise::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    /* Gold gradient text */
+    .text-royal-gradient {
+      background: linear-gradient(135deg, #bfcdfe 0%, #6080fa 50%, #bfcdfe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children */
+    .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
+    .reveal-stagger > .reveal:nth-child(2) { transition-delay: 120ms; }
+    .reveal-stagger > .reveal:nth-child(3) { transition-delay: 240ms; }
+
+    /* Gold line accent */
+    .royal-line {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, #6080fa, transparent);
+    }
+
+    /* Card hover glow */
+    .card-glow {
+      position: relative;
+      transition: all 0.4s ease;
+    }
+    .card-glow::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      box-shadow: 0 0 40px rgba(96, 128, 250, 0.08), inset 0 1px 0 rgba(96, 128, 250, 0.15);
+    }
+    .card-glow:hover::after {
+      opacity: 1;
+    }
+    .card-glow:hover {
+      border-color: rgba(96, 128, 250, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Nav link underline */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #6080fa;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Smooth scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #060910; }
+    ::-webkit-scrollbar-thumb { background: #1a2440; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6080fa; }
+
+    /* Hero gradient orb */
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+    }
+
+    /* Button shine */
+    .btn-royal {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #6080fa 0%, #3b5cf6 100%);
+      color: #ffffff;
+    }
+    .btn-royal::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+    .btn-royal:hover::before {
+      left: 100%;
+    }
+
+    /* Star animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
     }
   </style>
 </head>
 
-<body class=" lg:bg-white">
+<body class="noise">
 
-
-  <header class="absolute sticky mx-auto p-3 lg:p-0 left-0 top-0 z-50 bg-white/90 w-full backdrop-blur">
-    <div class="lg:mx-auto max-w-7xl mx-5 w-auto mt-5">
-      <div class="relative flex h-full items-center justify-between my-auto">
-
-        <a href="index.html">
-          <img src="images/RoyalQlogo-blue.svg" alt="logo" class="w-32 lg:w-40">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-base-900/80 border-b border-white/[0.04]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="images/RoyalQlogo-blue.svg" alt="RoyalQ logo" class="w-28 lg:w-36 brightness-0 invert opacity-90">
         </a>
 
-        <button id="menu" class="
-            lg:hidden
-            p-2
-            focus-visible:ring-sky-100
-            text-slate-700
-            hover:text-neutral-600
-            transition-colors
-            " aria-expanded="false" aria-label="Open Menu">
-
-
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="w-6 h-6">
+        <button id="menu" class="lg:hidden p-2 text-ivory-300 hover:text-royal-400 transition-colors" aria-expanded="false" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
           </svg>
-
-
         </button>
 
-        <div role="menubar" class="
-            hidden
-            flex-col
-            gap-4
-            absolute
-            z-40
-            right-0
-            left-0
-            rounded-lg
-            top-16
-            shadow-sm
-            bg-white
-            text-left
-            p-6
-            border
-            text-lg
-            items-left
-            w-auto
-            border-sky-200
-            lg:flex
-            lg:flex-row
-            lg:static
-            lg:border-none
-            lg:space-x-8
-            lg:items-center
-            lg:bg-transparent
-            lg:shadow-none
-
-
-            ">
-          <a href="index.html" class="hover:text-slate-400 duration-200">Home</a>
-          <a href="about.html" class="hover:text-slate-400 duration-200">About</a>
-          <a href="services.html" class="hover:text-slate-400 duration-200">services</a>
-          <a href="contact.html" class="hover:text-slate-400 duration-200">Contact</a>
-
-
-          <!-- <a href="" class="btn px-8 text-white text-center text-md">Get Started</a> -->
+        <div role="menubar" class="hidden flex-col gap-5 absolute z-40 right-4 left-4 rounded-xl top-16 bg-base-700 text-left p-6 border border-royal-400/10 text-lg lg:flex lg:flex-row lg:static lg:border-none lg:space-x-10 lg:items-center lg:bg-transparent lg:p-0 lg:gap-0 shadow-2xl lg:shadow-none">
+          <a href="index.html" class="nav-link active text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">Home</a>
+          <a href="about.html" class="nav-link text-ivory-300 hover:text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">About</a>
+          <a href="services.html" class="nav-link text-ivory-300 hover:text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">Services</a>
+          <a href="match-report.html" class="nav-link text-ivory-300 hover:text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">Match Report</a>
+          <a href="contact.html" class="nav-link text-ivory-300 hover:text-royal-400 font-body text-sm tracking-wide uppercase font-medium duration-200">Contact</a>
+          <a href="contact.html" class="btn-royal px-6 py-2.5 rounded font-body text-sm tracking-wide uppercase font-semibold text-center">Get Started</a>
         </div>
       </div>
     </div>
   </header>
-  <!-- end of header -->
 
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden min-h-[90vh] flex items-center">
+    <!-- Background orbs -->
+    <div class="hero-orb w-[600px] h-[600px] bg-royal-400/[0.04] -top-40 -right-40"></div>
+    <div class="hero-orb w-[400px] h-[400px] bg-royal-500/[0.03] bottom-20 -left-40"></div>
+    <div class="hero-orb w-[200px] h-[200px] bg-royal-300/[0.06] top-1/2 left-1/2"></div>
 
+    <!-- Decorative lines -->
+    <div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-royal-400/[0.06] to-transparent"></div>
+    <div class="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-royal-400/[0.04] to-transparent"></div>
 
-  <!-- hero section -->
-  <div class="relative mt-20 lg:mt-0">
-    <div class="mx-auto max-w-7xl">
-      <div class="flex flex-wrap px-8 md:px-6">
+    <div class="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-20 lg:py-28 w-full">
+      <div class="flex flex-wrap items-center">
+        <div class="w-full lg:w-7/12 text-center lg:text-left mb-16 lg:mb-0">
 
-        <!-- text -->
-        <div class="w-full lg:w-5/12 text-center lg:text-left spa my-auto">
-          <h1 class="text-slate-700 font-bold text-4xl">Streamline Your Business
-            Needs Process with RoyalQ</h1>
-          <p class="text-slate-500/70 text-lg mt-5 pb-4">
-            Manage your contracts and mobilse with ease using RoyalQ.
-            Our company simplifies the application process,
-            saving you time and effort.
-          </p>
-
-          <button class="py-5 px-7 bg-sky-200  rounded-2xl">Get Started Today</button>
-        </div>
-
-        <!-- image -->
-        <div class="w-full md:w-8/12 lg:w-6/12 lg:ml-20 md:mx-auto">
-          <div class="relative z-10 inline-block mt-14 lg:mt-0">
-            <img src="../images/landing-page/hero-illustration.svg" alt="hero section image"
-              class="max-w-full lg:ml-auto">
+          <div class="reveal inline-flex items-center gap-3 border border-royal-400/20 rounded-full px-5 py-2 mb-8 bg-royal-400/[0.04]">
+            <span class="w-1.5 h-1.5 bg-royal-400 rounded-full animate-pulse"></span>
+            <span class="text-xs text-royal-400 font-body tracking-widest uppercase font-medium">Trusted by 500+ organizations</span>
           </div>
-        </div>
 
-      </div>
-    </div>
-  </div>
-  <!-- end hero section -->
-
-
-  <!-- about section -->
-
-  <section class="relative pt-40">
-    <div class="mx-auto max-w-7xl">
-      <div class="grid grid-cols-1 md:grid-cols-2 px-8 md:px-6 items-center">
-
-        <!-- image -->
-        <div class="md:w-10/12 lg:w-9/12 md:mx-auto">
-          <img src="../images/landing-page/about-us.svg" alt="About Us">
-        </div>
-
-        <!-- text -->
-        <div class="mt-8 md:mt-0 lg:mt-0 w-full">
-          <h1 class="text-slate-700 font-bold text-3xl">About RoyalQ - Streamlining contracts with Modern Technology
+          <h1 class="reveal font-display text-5xl sm:text-6xl lg:text-[5.5rem] font-semibold leading-[0.95] tracking-tight">
+            Manage Every<br>Contract
+            <span class="text-royal-gradient italic">From Start<br>to Finish</span>
           </h1>
-          <p class="mt-4 text-slate-500 text-sm lg:text-lg">
-            At our company, customer support is our top
-            priority. We understand that when you have
-            a question or issue, you need a quick and
-            efficient resolution. Our team of dedicated
-            customer support specialists is available to assist you with any questions or concerns
-            you may have.
 
+          <div class="reveal royal-line mt-8 mx-auto lg:mx-0"></div>
 
+          <p class="reveal text-lg text-ivory-400 mt-8 max-w-lg mx-auto lg:mx-0 font-light leading-relaxed">
+            RoyalQ streamlines your entire contract lifecycle. Organize, automate, and track every agreement in one secure platform built for modern teams.
           </p>
-        </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- END about section -->
-
-
-  <!-- how it works -->
-
-  <section class="relative pt-40">
-    <div class="mx-auto max-w-7xl">
-
-      <div class="max-w-3xl px-8 md:px-6">
-        <h1 class="text-slate-700 font-bold text-3xl">
-          How RoyalQ Works
-        </h1>
-        <p class="mt-4 text-slate-500">
-
-          Royal Q simplifies contract management by providing a centralized platform where you can organize,
-          standardize, and streamline your contracts. It offers features such as contract categorization, customizable
-          templates, automated workflows, and milestone tracking. With Royal Q, you can efficiently manage your
-          contracts, increase productivity, and mitigate risks, all in one user-friendly solution.
-        </p>
-      </div>
-
-
-      <!-- how-it-works grids -->
-      <div class="grid grid-cols-1 mt-10 ml-6 gap-6 max-w-7xl mx-auto md:grid-cols-2 lg:grid-cols-3">
-
-        <!-- col 1 -->
-        <div class="px-6 py-8 bg-white rounded-xl shadow-vague">
-          <img src="../images/how-it-works-1.svg" alt="stacked icon" class="w-7">
-          <h3 class="font-bold text-1xl mt-5">Document Organization and Centralization</h3>
-          <p class="mt-3 text-sm">
-            Establishing a streamlined process for organizing and centralizing contracts is crucial for efficient
-            contract management. This step involves creating a centralized repository for all contract documents,
-            whether physical or digital.
-
-          </p>
-        </div>
-
-        <!-- col 1 -->
-        <div class="px-6 py-8 bg-white rounded-xl relative top-10 bottom-0 shadow-vague">
-          <img src="../images/how-it-works-2.svg" alt="stacked icon" class="w-10">
-          <h3 class="font-bold text-1xl mt-5"> Standardize Contract Templates and Terms</h3>
-          <p class="mt-3 text-sm">
-            Collaborate with legal and business teams to create a set of standardized contract templates that cover
-            common scenarios.
-            Include necessary clauses, terms, and conditions that align with your company's policies and legal
-            requirements.
-            Ensure that templates are easily customizable to meet specific client or project needs.
-            Implement a review process to periodically update and improve contract templates based on feedback and
-            changes in regulations or business practices.
-          </p>
-        </div>
-
-
-        <!-- col 1 -->
-        <div class="px-6 py-8 bg-white rounded-xl shadow-vague">
-          <img src="../images/how-it-works-3.svg" alt="stacked icon" class="w-7">
-          <h3 class="font-bold text-1xl mt-5"> Streamline Contract Lifecycle Processes</h3>
-          <p class="mt-3 text-sm">
-            Streamlining contract lifecycle processes ensures efficient handling of contracts from initiation to
-            execution and beyond.
-
-            Establish clear workflows and approval processes for contract creation, review, and signing.
-            Define roles and responsibilities for each stage of the contract lifecycle.
-            Automate repetitive tasks, such as sending reminders for contract renewals or notifying stakeholders about
-            upcoming milestones.
-            Implement contract tracking mechanisms to monitor deadlines, obligations, and key milestones.
-            Regularly conduct audits to identify bottlenecks, inefficiencies, and areas for improvement in the contract
-            management process.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- END how it works -->
-
-
-  <!-- cta -->
-
-  <section class="relative pt-40">
-    <div class="mx-auto max-w-7xl bg-gradient-to-r from-sky-400 to-sky-300 rounded-none xl:rounded-2xl lg:p-20 p-5 sm:pb-10 md:pb-0 text-center items-center 
-                  md:text-left md:items-start">
-
-      <div class="grid items-center grid-cols-1 md:grid-cols-2 px-8 md:p-10">
-        <!-- text -->
-        <div class="mt-10 md:mt-20 lg:mt-0 mb-20 lg:mb-0 lg:items-center w-full text-white my-auto">
-          <h1 class="font-semibold text-4xl">Get Started With RoyalQ Today</h1>
-          <p class="text-lg mt-5 md:text-sm" style="margin-bottom: 20px;">
-            Get Started with Royal Q, the ultimate contract management solution designed to streamline and optimize your
-            company's contract processes. With Royal Q, you can effectively manage your contracts, increase
-            productivity, and mitigate risks, all in one centralized platform.
-          </p>
-          <a href="register.html" class="mt-5 text-sky-400 rounded-full bg-white p-4 font-semibold">Get
-            Started
-            Today</a>
-        </div>
-
-        <!-- image -->
-        <div class="w-10/12 md:w-8/12 lg:w-8/12 lg:ml-20 mx-auto">
-          <div class="relative z-10 inline-block mt-14 lg:mt-0">
-            <img src="../images/landing-page/cta.svg" alt="call-to-action image" class="max-w-6/12 lg:ml-auto">
+          <div class="reveal flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start">
+            <a href="contact.html" class="btn-royal px-8 py-4 rounded font-body text-sm tracking-widest uppercase font-semibold text-center">Start Free Trial</a>
+            <a href="services.html" class="border border-ivory-500/20 text-ivory-200 px-8 py-4 rounded font-body text-sm tracking-widest uppercase font-medium hover:border-royal-400/40 hover:text-royal-400 transition-all duration-300 text-center">See How It Works</a>
           </div>
-        </div>
 
-      </div>
-
-
-    </div>
-  </section>
-
-  <!-- END cta -->
-
-
-  <!-- footer -->
-
-  <footer class="bg-zinc-800 pt-20 lg:p-20 p-10 mt-40">
-    <div class="mx-auto max-w-7xl">
-
-      <div class="grid lg:grid-cols-6 lg:gap-10 gap-20">
-
-        <!-- col 1 -->
-        <div class="lg:col-span-2">
-          <a href="index.html">
-            <img src="../images/RoyalQlogo-blue.svg" alt="logo image" class="w-40 text-white">
-          </a>
-          <p class="text-slate-400 mt-4 lg:text-sm">
-            Manage your contracts and mobilse with ease using RoyalQ.
-            Our company simplifies the application process,
-            saving you time and effort.
-          </p>
-        </div>
-
-        <!-- col 2 -->
-        <div class="">
-          <ul class="text-lg md:text-md">
-            <li><a href="#" class="text-sky-400">Apply Now</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">FAQ</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Services</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Resources</a></li>
-          </ul>
-        </div>
-
-
-        <!-- col 3 -->
-        <div class="">
-          <ul class="text-lg md:text-md">
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Affiliates</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Partners</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Donations</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Founders</a></li>
-            <li><a href="#" class="text-slate-500 hover:text-sky-400 duration-200">Our Team</a></li>
-          </ul>
-        </div>
-
-
-
-        <!-- col 4 -->
-        <div class="lg:col-span-2">
-          <h1 class="text-white text-2xl">Subscribe To Our Newsletter</h1>
-
-          <div class="border border-slate-600 mt-5 rounded-full w-[90%] md:w-[60%] lg:w-full">
-
-            <!-- input field box -->
-            <div class="p-1.5 flex justify-between">
-              <input class="font-semibold text-white lg:text-sm outline-none bg-transparent ml-3" type="email"
-                placeholder="123@example.com">
-              <button type="submit" class="px-6 py-4 lg:p-2.5
-                       lg:text-sm xl:mr-0 xl:px-5 xl:py-3 bg-sky-400 text-white rounded-full">Subscribe</button>
+          <div class="reveal flex items-center gap-10 mt-14 justify-center lg:justify-start">
+            <div class="text-center lg:text-left">
+              <p class="text-3xl font-display font-semibold text-royal-gradient">500+</p>
+              <p class="text-xs text-ivory-500 uppercase tracking-widest mt-1 font-body">Companies</p>
+            </div>
+            <div class="w-px h-12 bg-royal-400/10"></div>
+            <div class="text-center lg:text-left">
+              <p class="text-3xl font-display font-semibold text-royal-gradient">50K+</p>
+              <p class="text-xs text-ivory-500 uppercase tracking-widest mt-1 font-body">Contracts</p>
+            </div>
+            <div class="w-px h-12 bg-royal-400/10"></div>
+            <div class="text-center lg:text-left">
+              <p class="text-3xl font-display font-semibold text-royal-gradient">99.9%</p>
+              <p class="text-xs text-ivory-500 uppercase tracking-widest mt-1 font-body">Uptime</p>
             </div>
           </div>
-          <!-- icons -->
-          <div class="mt-5 flex justify-center space-x-16 lg:space-x-10 md:justify-start">
+        </div>
 
+        <div class="w-full lg:w-5/12 lg:pl-8 reveal">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-br from-royal-400/[0.06] to-transparent rounded-2xl blur-2xl"></div>
+            <img src="images/landing-page/hero-illustration.svg" alt="Contract management dashboard" class="relative w-full max-w-lg mx-auto opacity-85 brightness-110">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <a href="#">
-              <img src="../images/instagram.svg" alt="dribble icon" class="w-8 lg:min-w-[25px]">
-            </a>
-            <a href="#">
-              <img src="../images/facebook.svg" alt="dribble icon" class="w-8 lg:min-w-[25px]">
-            </a>
+  <!-- Trusted By Logo Bar -->
+  <section class="border-y border-white/[0.04] py-12 bg-base-800/30">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <p class="reveal text-center text-xs text-ivory-500 font-body uppercase tracking-[0.25em] mb-10">Integrates with tools you already use</p>
+      <div class="reveal flex items-center justify-center gap-12 sm:gap-20 flex-wrap opacity-30 brightness-200 invert">
+        <img src="images/slack.svg" alt="Slack" class="h-7">
+        <img src="images/dropbox.svg" alt="Dropbox" class="h-7">
+        <img src="images/figma-1.svg" alt="Figma" class="h-7">
+        <img src="images/dribbble.svg" alt="Dribbble" class="h-7">
+      </div>
+    </div>
+  </section>
 
+  <!-- Why RoyalQ Section -->
+  <section class="py-24 lg:py-36">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div class="reveal">
+          <div class="relative">
+            <div class="absolute -inset-6 bg-gradient-to-br from-royal-400/[0.04] to-transparent rounded-3xl blur-3xl"></div>
+            <img src="images/landing-page/about-us.svg" alt="Contract management illustration" class="relative w-full max-w-md mx-auto opacity-80 brightness-110">
+          </div>
+        </div>
+        <div>
+          <div class="reveal">
+            <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase mb-4">Why Choose Us</p>
+            <h2 class="font-display text-4xl lg:text-5xl font-semibold leading-tight">Why teams choose <span class="italic text-royal-gradient">RoyalQ</span></h2>
+            <div class="royal-line mt-6"></div>
+            <p class="text-ivory-400 mt-6 text-lg font-light leading-relaxed">RoyalQ gives you complete visibility and control over every contract, so nothing slips through the cracks.</p>
+          </div>
+
+          <ul class="mt-10 space-y-6 reveal-stagger">
+            <li class="reveal flex items-start gap-4">
+              <div class="w-8 h-8 rounded border border-royal-400/20 bg-royal-400/[0.06] flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-royal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <p class="font-body font-medium text-ivory-100">Centralized contract repository</p>
+                <p class="text-ivory-500 text-sm mt-1 font-light">All your contracts in one searchable, organized platform</p>
+              </div>
+            </li>
+            <li class="reveal flex items-start gap-4">
+              <div class="w-8 h-8 rounded border border-royal-400/20 bg-royal-400/[0.06] flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-royal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <p class="font-body font-medium text-ivory-100">Automated renewal reminders</p>
+                <p class="text-ivory-500 text-sm mt-1 font-light">Never miss a deadline or renewal date again</p>
+              </div>
+            </li>
+            <li class="reveal flex items-start gap-4">
+              <div class="w-8 h-8 rounded border border-royal-400/20 bg-royal-400/[0.06] flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-royal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <p class="font-body font-medium text-ivory-100">Customizable templates</p>
+                <p class="text-ivory-500 text-sm mt-1 font-light">Start from proven templates and adapt them to your needs</p>
+              </div>
+            </li>
+            <li class="reveal flex items-start gap-4">
+              <div class="w-8 h-8 rounded border border-royal-400/20 bg-royal-400/[0.06] flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-royal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <p class="font-body font-medium text-ivory-100">Real-time collaboration</p>
+                <p class="text-ivory-500 text-sm mt-1 font-light">Work together with your team and stakeholders seamlessly</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-24 lg:py-36 bg-base-800/40 border-y border-white/[0.03]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="text-center max-w-2xl mx-auto mb-20 reveal">
+        <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase mb-4">The Process</p>
+        <h2 class="font-display text-4xl lg:text-5xl font-semibold leading-tight">How RoyalQ <span class="italic text-royal-gradient">Works</span></h2>
+        <div class="royal-line mt-6 mx-auto"></div>
+        <p class="mt-6 text-lg text-ivory-400 font-light">Get up and running in three simple steps. RoyalQ simplifies contract management so you can focus on growing your business.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-stagger">
+        <div class="reveal card-glow bg-base-700/50 rounded-xl p-8 border border-white/[0.04] group">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-royal-gradient font-display text-4xl font-semibold italic">01</span>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <img src="images/how-it-works-1.svg" alt="Document organization" class="w-10 mb-5 opacity-70 brightness-150">
+          <h3 class="font-display font-semibold text-2xl text-ivory-100">Document Organization</h3>
+          <p class="mt-3 text-ivory-500 font-light leading-relaxed">Upload and centralize all your contracts in one secure, searchable repository. Categorize and tag for instant retrieval.</p>
+        </div>
+
+        <div class="reveal card-glow bg-base-700/50 rounded-xl p-8 border border-white/[0.04] group">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-royal-gradient font-display text-4xl font-semibold italic">02</span>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <img src="images/how-it-works-2.svg" alt="Contract templates" class="w-10 mb-5 opacity-70 brightness-150">
+          <h3 class="font-display font-semibold text-2xl text-ivory-100">Standardize Templates</h3>
+          <p class="mt-3 text-ivory-500 font-light leading-relaxed">Create and customize reusable templates with pre-approved clauses and terms that align with your company policies.</p>
+        </div>
+
+        <div class="reveal card-glow bg-base-700/50 rounded-xl p-8 border border-white/[0.04] group">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="text-royal-gradient font-display text-4xl font-semibold italic">03</span>
+            <div class="flex-1 h-px bg-gradient-to-r from-royal-400/20 to-transparent"></div>
+          </div>
+          <img src="images/how-it-works-3.svg" alt="Lifecycle automation" class="w-10 mb-5 opacity-70 brightness-150">
+          <h3 class="font-display font-semibold text-2xl text-ivory-100">Automate Workflows</h3>
+          <p class="mt-3 text-ivory-500 font-light leading-relaxed">Set up automated approval workflows, renewal reminders, and milestone tracking to keep every contract on schedule.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 lg:py-36">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="text-center max-w-2xl mx-auto mb-20 reveal">
+        <p class="text-xs text-royal-400 font-body tracking-[0.3em] uppercase mb-4">Testimonials</p>
+        <h2 class="font-display text-4xl lg:text-5xl font-semibold leading-tight">Loved by teams <span class="italic text-royal-gradient">everywhere</span></h2>
+        <div class="royal-line mt-6 mx-auto"></div>
+        <p class="mt-6 text-lg text-ivory-400 font-light">See what our customers have to say about transforming their contract management with RoyalQ.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-stagger">
+        <div class="reveal card-glow bg-base-700/30 rounded-xl p-8 border border-white/[0.04]">
+          <div class="flex gap-1 mb-6">
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <svg class="w-8 h-8 text-royal-400/20 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <p class="text-ivory-300 font-light leading-relaxed">"RoyalQ transformed how we handle contracts. We went from scattered spreadsheets to a centralized system in days. The document organization alone saved us 10+ hours per week."</p>
+          <div class="flex items-center gap-3 mt-8 pt-6 border-t border-white/[0.04]">
+            <div class="w-10 h-10 rounded-full bg-royal-400/10 border border-royal-400/20 flex items-center justify-center"><span class="text-royal-400 font-display font-semibold text-sm">SK</span></div>
+            <div><p class="font-body font-medium text-ivory-100 text-sm">Sarah Kim</p><p class="text-ivory-500 text-xs">Head of Legal, TechFlow</p></div>
           </div>
         </div>
 
+        <div class="reveal card-glow bg-base-700/30 rounded-xl p-8 border border-white/[0.04]">
+          <div class="flex gap-1 mb-6">
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <svg class="w-8 h-8 text-royal-400/20 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <p class="text-ivory-300 font-light leading-relaxed">"The automated workflow feature is a game-changer. Contract approvals that used to take weeks now happen in hours. Our compliance team finally has peace of mind."</p>
+          <div class="flex items-center gap-3 mt-8 pt-6 border-t border-white/[0.04]">
+            <div class="w-10 h-10 rounded-full bg-royal-400/10 border border-royal-400/20 flex items-center justify-center"><span class="text-royal-400 font-display font-semibold text-sm">MR</span></div>
+            <div><p class="font-body font-medium text-ivory-100 text-sm">Marcus Rivera</p><p class="text-ivory-500 text-xs">VP Operations, CloudBase</p></div>
+          </div>
+        </div>
+
+        <div class="reveal card-glow bg-base-700/30 rounded-xl p-8 border border-white/[0.04]">
+          <div class="flex gap-1 mb-6">
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-royal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <svg class="w-8 h-8 text-royal-400/20 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <p class="text-ivory-300 font-light leading-relaxed">"We manage over 2,000 contracts through RoyalQ. The milestone tracking and template standardization have reduced our contract cycle time by 60%."</p>
+          <div class="flex items-center gap-3 mt-8 pt-6 border-t border-white/[0.04]">
+            <div class="w-10 h-10 rounded-full bg-royal-400/10 border border-royal-400/20 flex items-center justify-center"><span class="text-royal-400 font-display font-semibold text-sm">AT</span></div>
+            <div><p class="font-body font-medium text-ivory-100 text-sm">Aisha Thompson</p><p class="text-ivory-500 text-xs">Director of Procurement, ScaleUp Inc</p></div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <hr class="my-20 opacity-20">
+  <!-- CTA Section -->
+  <section class="py-24 lg:py-36">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="reveal relative rounded-2xl overflow-hidden">
+        <!-- Gold gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-royal-400 via-royal-500 to-royal-600"></div>
+        <!-- Texture overlay -->
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23000000&quot; fill-opacity=&quot;0.15&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        <!-- Orbs -->
+        <div class="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-56 h-56 bg-royal-800/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 md:justify-between">
-        <p class="mb-5 md:mb-0 text-slate-500">&copy; Copyright Web Design & Development</p>
+        <div class="relative z-10 p-12 lg:p-24 text-center">
+          <h2 class="font-display text-4xl lg:text-6xl font-semibold text-white leading-tight">Get Started With<br><span class="italic">RoyalQ Today</span></h2>
+          <div class="w-12 h-px bg-white/20 mx-auto mt-6"></div>
+          <p class="text-white/70 text-lg mt-6 max-w-2xl mx-auto font-light">Join 500+ organizations that trust RoyalQ to manage their contracts. Start your free trial and see the difference in minutes.</p>
+          <div class="flex flex-col sm:flex-row gap-4 mt-10 justify-center">
+            <a href="contact.html" class="bg-white text-royal-600 px-8 py-4 rounded font-body text-sm tracking-widest uppercase font-semibold hover:bg-base-800 transition-colors">Start Free Trial</a>
+            <a href="contact.html" class="border-2 border-white/30 text-white px-8 py-4 rounded font-body text-sm tracking-widest uppercase font-semibold hover:bg-white/10 transition-colors">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="space-x-6 md:ml-auto">
-          <a href="#" class="text-slate-300 underline">Terms and Conditions</a>
-          <a href="#" class="text-slate-300 underline">Privacy Policy</a>
+  <!-- Footer -->
+  <footer class="border-t border-white/[0.04] pt-20 pb-10 bg-base-900">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+
+        <div>
+          <a href="index.html">
+            <img src="images/RoyalQlogo-blue.svg" alt="RoyalQ logo" class="w-32 brightness-0 invert opacity-70">
+          </a>
+          <p class="text-ivory-500 mt-5 text-sm font-light leading-relaxed">Manage your contracts with ease using RoyalQ. Our platform simplifies every step, saving you time and effort.</p>
+          <div class="flex gap-4 mt-6">
+            <a href="#" class="w-9 h-9 rounded border border-white/[0.06] flex items-center justify-center hover:border-royal-400/30 hover:bg-royal-400/[0.05] transition-all">
+              <img src="images/instagram.svg" alt="Instagram" class="w-4 brightness-0 invert opacity-50">
+            </a>
+            <a href="#" class="w-9 h-9 rounded border border-white/[0.06] flex items-center justify-center hover:border-royal-400/30 hover:bg-royal-400/[0.05] transition-all">
+              <img src="images/facebook.svg" alt="Facebook" class="w-4 brightness-0 invert opacity-50">
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs text-royal-400 font-body tracking-[0.2em] uppercase mb-5">Product</h4>
+          <ul class="space-y-3">
+            <li><a href="services.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Features</a></li>
+            <li><a href="services.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">How It Works</a></li>
+            <li><a href="contact.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Pricing</a></li>
+            <li><a href="services.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Integrations</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs text-royal-400 font-body tracking-[0.2em] uppercase mb-5">Company</h4>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">About</a></li>
+            <li><a href="contact.html" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Contact</a></li>
+            <li><a href="#" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Careers</a></li>
+            <li><a href="#" class="text-ivory-400 hover:text-royal-400 text-sm transition-colors font-light">Blog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs text-royal-400 font-body tracking-[0.2em] uppercase mb-5">Newsletter</h4>
+          <p class="text-ivory-500 text-sm mb-4 font-light">Get the latest updates and insights on contract management.</p>
+          <div class="flex">
+            <input type="email" placeholder="you@company.com" class="bg-base-700/50 border border-white/[0.06] rounded-l px-4 py-3 text-sm text-ivory-100 placeholder-ivory-500 outline-none focus:border-royal-400/40 w-full font-body transition-colors">
+            <button class="bg-royal-400 text-white px-5 py-3 rounded-r text-sm font-semibold font-body hover:bg-royal-300 transition-colors whitespace-nowrap tracking-wide">Subscribe</button>
+          </div>
         </div>
       </div>
 
+      <hr class="my-12 border-white/[0.04]">
+
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-ivory-500/60 text-xs font-light tracking-wide">&copy; 2024 RoyalQ. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a href="#" class="text-ivory-500/60 hover:text-royal-400 text-xs transition-colors font-light tracking-wide">Terms</a>
+          <a href="#" class="text-ivory-500/60 hover:text-royal-400 text-xs transition-colors font-light tracking-wide">Privacy</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <!-- footer -->
   <script src="./main.js"></script>
-
 </body>
 
 </html>
